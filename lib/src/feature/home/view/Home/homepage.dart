@@ -1,5 +1,5 @@
-import 'package:firestore/UI/Home/allproduct.dart';
-import 'package:firestore/strings.dart';
+import 'package:firestore/src/feature/product/view/allproduct.dart';
+import 'package:firestore/src/res/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

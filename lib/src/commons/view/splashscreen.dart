@@ -1,17 +1,17 @@
-import 'package:firestore/UI/Authentication/loginpage.dart';
-import 'package:firestore/UI/Authentication/signuppage.dart';
-import 'package:firestore/strings.dart';
+import 'package:firestore/src/commons/view/loginpage.dart';
+import 'package:firestore/src/commons/view/signuppage.dart';
+import 'package:firestore/src/res/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class Splashscreen extends StatefulWidget {
+  const Splashscreen({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<Splashscreen> createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<Splashscreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;

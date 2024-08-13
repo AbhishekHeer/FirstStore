@@ -1,4 +1,4 @@
-import 'package:firestore/materials/card.dart';
+import 'package:firestore/src/feature/product/view/card.dart';
 import 'package:flutter/material.dart';
 
 class Allproduct extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:firestore/UI/Authentication/signuppage.dart';
+import 'package:firestore/src/utils/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,14 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Assignment',
+    return MaterialApp.router(
+      title: 'FirstStore',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SignupPage(),
+      routerConfig: Gorouter.router,
     );
   }
 }
