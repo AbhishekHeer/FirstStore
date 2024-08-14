@@ -8,6 +8,7 @@ import 'package:firestore/src/feature/Reconciliation/view/multi_way/entity_detai
 import 'package:firestore/src/feature/Reconciliation/view/multi_way/entity_details_2.dart';
 import 'package:firestore/src/feature/Reconciliation/view/multi_way/entity_type.dart';
 import 'package:firestore/src/feature/Reconciliation/view/multi_way/invoice_details.dart';
+import 'package:firestore/src/feature/Reconciliation/view/multi_way/transaction_add.dart';
 import 'package:firestore/src/feature/Reconciliation/view/multi_way/transaction_details.dart';
 import 'package:firestore/src/feature/Reconciliation/view/reconciliation_main.dart';
 import 'package:firestore/src/feature/Reconciliation/view/user_case.dart';
@@ -20,7 +21,7 @@ import 'package:go_router/go_router.dart';
 
 abstract class Gorouter {
   static GoRouter router = GoRouter(
-    initialLocation: '/transaction_details',
+    initialLocation: '/transaction_add',
     routes: [
       GoRoute(
         name: '/home',
@@ -119,6 +120,12 @@ abstract class Gorouter {
           path: '/account_balance',
           builder: (context, GoRouterState state) {
             return const AccountBalance();
+          }),
+      GoRoute(
+          name: '/transaction_add',
+          path: '/transaction_add',
+          builder: (context, GoRouterState state) {
+            return const TransactionAdd();
           }),
     ],
   );
