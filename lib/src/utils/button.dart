@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 
 class Button {
   static Widget button(
-      String text, VoidCallback onPressed, double height, width) {
+    String text,
+    VoidCallback onPressed,
+    double height,
+    width,
+  ) {
     return InkWell(
       onTap: onPressed,
       child: Container(

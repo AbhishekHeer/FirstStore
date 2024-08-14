@@ -40,9 +40,14 @@ class _ContactusState extends State<Contactus> {
                           padding: EdgeInsets.only(left: width * .04),
                           child: Row(
                             children: [
-                              const Icon(
-                                CupertinoIcons.left_chevron,
-                                color: Colors.white,
+                              InkWell(
+                                onTap: () {
+                                  context.pop();
+                                },
+                                child: const Icon(
+                                  CupertinoIcons.left_chevron,
+                                  color: Colors.white,
+                                ),
                               ),
                               SizedBox(width: width * .03, height: 0.0),
                               Text(

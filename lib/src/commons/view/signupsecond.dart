@@ -1,4 +1,6 @@
+import 'package:firestore/src/commons/view/loginpage.dart';
 import 'package:firestore/src/utils/button.dart';
+import 'package:firestore/src/utils/snackbar_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -8,6 +10,10 @@ class Signupsecond extends StatefulWidget {
   @override
   State<Signupsecond> createState() => _SignupsecondState();
 }
+
+TextEditingController user_name = TextEditingController();
+TextEditingController password = TextEditingController();
+TextEditingController comfirm_password = TextEditingController();
 
 class _SignupsecondState extends State<Signupsecond> {
   @override
@@ -50,8 +56,10 @@ class _SignupsecondState extends State<Signupsecond> {
                       ),
                     ),
                   ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
+                  TextField(
+                    controller: user_name,
+                    decoration:
+                        const InputDecoration(border: OutlineInputBorder()),
                   ),
                 ],
               ),
@@ -77,8 +85,10 @@ class _SignupsecondState extends State<Signupsecond> {
                       ),
                     ),
                   ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
+                  TextField(
+                    controller: password,
+                    decoration:
+                        const InputDecoration(border: OutlineInputBorder()),
                   ),
                 ],
               ),
@@ -104,8 +114,10 @@ class _SignupsecondState extends State<Signupsecond> {
                       ),
                     ),
                   ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
+                  TextField(
+                    controller: comfirm_password,
+                    decoration:
+                        const InputDecoration(border: OutlineInputBorder()),
                   ),
                 ],
               ),
@@ -115,7 +127,17 @@ class _SignupsecondState extends State<Signupsecond> {
               padding: EdgeInsets.only(top: height * .24, bottom: height * .03),
               child: Center(
                 child: Button.button("Sign Up", () {
-                  context.pushNamed('/home');
+                  if (user_name.text.isEmpty) {
+                    SnackbarService.showSnackbar(
+                        context, "Please Enter User Name", Colors.red);
+                  } else if (password.text != comfirm_password.text ||
+                      password.text.isEmpty ||
+                      comfirm_password.text.isEmpty) {
+                    SnackbarService.showSnackbar(
+                        context, "Password Not Matched !!", Colors.red);
+                  } else {
+                    context.pushNamed('/home');
+                  }
                 }, height, width),
               ),
             )

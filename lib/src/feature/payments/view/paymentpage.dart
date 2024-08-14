@@ -1,11 +1,14 @@
+import 'package:firestore/src/models/cardmodel.dart';
 import 'package:firestore/src/res/strings.dart';
 import 'package:firestore/src/utils/button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class Paymentpage extends StatefulWidget {
-  const Paymentpage({super.key});
+  final Cardmodel cardmodel;
+  const Paymentpage({super.key, required this.cardmodel});
 
   @override
   State<Paymentpage> createState() => _PaymentpageState();
@@ -39,9 +42,14 @@ class _PaymentpageState extends State<Paymentpage> {
                         padding: EdgeInsets.only(left: width * .04),
                         child: Row(
                           children: [
-                            const Icon(
-                              CupertinoIcons.left_chevron,
-                              color: Colors.white,
+                            InkWell(
+                              onTap: () {
+                                context.pop();
+                              },
+                              child: const Icon(
+                                CupertinoIcons.left_chevron,
+                                color: Colors.white,
+                              ),
                             ),
                             SizedBox(width: width * .03, height: 0.0),
                             Text(
@@ -59,7 +67,10 @@ class _PaymentpageState extends State<Paymentpage> {
             Container(
               height: height * .4,
               width: width * .9,
-              decoration: const BoxDecoration(color: Colors.black),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(widget.cardmodel.imageUrl),
+                      fit: BoxFit.cover)),
             ),
             SizedBox(width: 0.0, height: height * .01),
             Padding(
@@ -69,7 +80,7 @@ class _PaymentpageState extends State<Paymentpage> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      'Parafin',
+                      widget.cardmodel.productName,
                       style:
                           texttheme.titleSmall?.copyWith(color: Colors.black),
                     )
@@ -93,7 +104,6 @@ class _PaymentpageState extends State<Paymentpage> {
               ),
             ),
             //state items
-
             Padding(
               padding: EdgeInsets.only(left: width * .1, top: height * .04),
               child: Align(
@@ -137,7 +147,7 @@ class _PaymentpageState extends State<Paymentpage> {
                 ),
               ),
             ),
-//ACH, Same day ACH
+            //ACH, Same day ACH
             Padding(
               padding: EdgeInsets.only(left: width * .1, top: height * .02),
               child: Align(

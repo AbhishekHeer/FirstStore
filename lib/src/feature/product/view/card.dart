@@ -1,6 +1,8 @@
+import 'package:firestore/src/models/cardmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 // ignore: must_be_immutable
 class ProductCard extends StatelessWidget {
@@ -33,9 +35,6 @@ class ProductCard extends StatelessWidget {
               height: height * .16,
               width: width * .43,
               decoration: BoxDecoration(
-                  // borderRadius: BorderRadius.only(
-                  //     topLeft: Radius.circular(width * .02),
-                  //     topRight: Radius.circular(width * .02)),
                   image: DecorationImage(
                 image: NetworkImage(
                   productimage,
@@ -47,22 +46,31 @@ class ProductCard extends StatelessWidget {
               padding: EdgeInsets.only(top: height * .004),
               height: height * .06,
               width: width * .45,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: width * .03),
-                    child: Text(
-                      productname,
-                      style:
-                          texttheme.labelLarge?.copyWith(color: Colors.black),
+              child: InkWell(
+                onTap: () {
+                  final Cardmodel cardmodel = Cardmodel(
+                      imageUrl: productimage,
+                      productName: productname,
+                      productDiscription: productdescription);
+                  context.pushNamed('/paymentpage', extra: cardmodel);
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: width * .03),
+                      child: Text(
+                        productname,
+                        style:
+                            texttheme.labelLarge?.copyWith(color: Colors.black),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: width * .03),
-                    child: const Icon(CupertinoIcons.arrow_right),
-                  )
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(right: width * .03),
+                      child: const Icon(CupertinoIcons.arrow_right),
+                    )
+                  ],
+                ),
               ),
             ),
             Container(

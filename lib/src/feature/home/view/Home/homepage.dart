@@ -3,6 +3,7 @@ import 'package:firestore/src/res/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -47,9 +48,14 @@ class _HomepageState extends State<Homepage> {
                         ),
                         Padding(
                           padding: EdgeInsets.only(right: width * .04),
-                          child: const Icon(
-                            Icons.person_2_outlined,
-                            color: Colors.white,
+                          child: InkWell(
+                            onTap: () {
+                              context.pushNamed('/contactus');
+                            },
+                            child: const Icon(
+                              Icons.person_2_outlined,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ],

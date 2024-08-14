@@ -3,6 +3,7 @@ import 'package:firestore/src/commons/view/signuppage.dart';
 import 'package:firestore/src/res/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -41,11 +42,7 @@ class _MainPageState extends State<Splashscreen> {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Loginpage()),
-                    );
+                    context.goNamed('/login');
                   },
                   child: const Text(
                     'Login',
@@ -62,11 +59,7 @@ class _MainPageState extends State<Splashscreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignupPage()),
-                    );
+                    context.goNamed('/signup');
                   },
                   child: const Text(
                     'Sign Up',

@@ -1,4 +1,5 @@
 import 'package:firestore/src/utils/button.dart';
+import 'package:firestore/src/utils/snackbar_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -8,6 +9,11 @@ class SignupPage extends StatefulWidget {
   @override
   State<SignupPage> createState() => _SignupPageState();
 }
+
+TextEditingController first_name = TextEditingController();
+TextEditingController last_name = TextEditingController();
+TextEditingController email = TextEditingController();
+TextEditingController contact_number = TextEditingController();
 
 class _SignupPageState extends State<SignupPage> {
   @override
@@ -49,8 +55,10 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    const TextField(
-                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    TextField(
+                      controller: first_name,
+                      decoration:
+                          const InputDecoration(border: OutlineInputBorder()),
                     ),
                   ],
                 ),
@@ -76,8 +84,10 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    const TextField(
-                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    TextField(
+                      controller: last_name,
+                      decoration:
+                          const InputDecoration(border: OutlineInputBorder()),
                     ),
                   ],
                 ),
@@ -103,8 +113,10 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    const TextField(
-                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    TextField(
+                      controller: email,
+                      decoration:
+                          const InputDecoration(border: OutlineInputBorder()),
                     ),
                   ],
                 ),
@@ -130,8 +142,10 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    const TextField(
-                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    TextField(
+                      controller: contact_number,
+                      decoration:
+                          const InputDecoration(border: OutlineInputBorder()),
                     ),
                   ],
                 ),
@@ -141,7 +155,21 @@ class _SignupPageState extends State<SignupPage> {
           SizedBox(width: 0.0, height: height * .04),
           Center(
             child: Button.button("Next", () {
-              context.goNamed('/signupsecond');
+              if (first_name.text.isEmpty) {
+                SnackbarService.showSnackbar(
+                    context, "First Name is Empty", Colors.red);
+              } else if (last_name.text.isEmpty) {
+                SnackbarService.showSnackbar(
+                    context, "Last Name is Empty", Colors.red);
+              } else if (email.text.isEmpty) {
+                SnackbarService.showSnackbar(
+                    context, "Email is Empty", Colors.red);
+              } else if (contact_number.text.isEmpty) {
+                SnackbarService.showSnackbar(
+                    context, "Contact Number is Empty", Colors.red);
+              } else {
+                context.goNamed('/signupsecond');
+              }
             }, height, width),
           ),
           SizedBox(width: 0.0, height: height * .02),
