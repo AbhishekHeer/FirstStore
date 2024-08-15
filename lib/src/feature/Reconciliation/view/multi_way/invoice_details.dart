@@ -1,6 +1,4 @@
-import 'package:firestore/src/res/strings.dart';
 import 'package:firestore/src/utils/button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,6 +10,10 @@ class InvoiceDetails extends StatefulWidget {
 }
 
 TextEditingController date = TextEditingController();
+TextEditingController invoice_number = TextEditingController();
+TextEditingController transaction_id = TextEditingController();
+TextEditingController transaction_type = TextEditingController();
+TextEditingController amount = TextEditingController();
 
 class _InvoiceDetailsState extends State<InvoiceDetails> {
   @override
@@ -25,43 +27,8 @@ class _InvoiceDetailsState extends State<InvoiceDetails> {
           child: Column(
             children: <Widget>[
               SizedBox(width: 0.0, height: height * .01),
-              Center(
-                child: Container(
-                    height: height * .07,
-                    width: width,
-                    margin:
-                        EdgeInsets.only(left: width * .05, right: width * .05),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(height * .02),
-                        color: greencolor),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: width * .04),
-                          child: Row(
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  context.pop();
-                                },
-                                child: const Icon(
-                                  CupertinoIcons.left_chevron,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              SizedBox(width: width * .03, height: 0.0),
-                              Text(
-                                'Reconciliation',
-                                style: texttheme.titleMedium
-                                    ?.copyWith(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
+              Appbarhead.apphead(
+                  context, "Reconciliation", height, width, texttheme),
               SizedBox(width: 0.0, height: height * .04),
               Padding(
                 padding: EdgeInsets.only(left: width * .07),
@@ -86,160 +53,19 @@ class _InvoiceDetailsState extends State<InvoiceDetails> {
                 ),
               ),
               // TInvoice Number*
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Invoice Number'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const TextField(
-                      decoration: InputDecoration(border: OutlineInputBorder()),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(
+                  width, height, "Invoice Number", invoice_number, false),
               // Transaction ID*
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Transaction ID'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const TextField(
-                      decoration: InputDecoration(border: OutlineInputBorder()),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(
+                  width, height, "Transaction ID", transaction_id, false),
               //Transaction Type*
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Transaction Type'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const TextField(
-                      decoration: InputDecoration(border: OutlineInputBorder()),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(
+                  width, height, "Transaction Type", transaction_type, false),
               // Date*
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Date'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      controller: date,
-                      onTap: () {
-                        showDatePicker(
-                                context: context,
-                                initialDate: DateTime.now(),
-                                firstDate: DateTime.now()
-                                    .subtract(const Duration(days: 365)),
-                                lastDate: DateTime.now())
-                            .then((value) {
-                          if (value == null) return;
-                          setState(() {
-                            final String updatedate =
-                                "${value.day}-${value.month}-${value.year}";
-                            date.text = updatedate;
-                          });
-                        });
-                      },
-                      readOnly: true,
-                      decoration:
-                          const InputDecoration(border: OutlineInputBorder()),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(
+                  width, height, "Transaction Type", transaction_type, true),
               //Amount
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Amount'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const TextField(
-                      decoration: InputDecoration(border: OutlineInputBorder()),
-                    ),
-                  ],
-                ),
-              ),
-
+              TextFeild.textfield(width, height, "Amount", amount, true),
               //two button
               SizedBox(width: 0.0, height: height * .03),
               Row(
@@ -250,7 +76,8 @@ class _InvoiceDetailsState extends State<InvoiceDetails> {
                   }, height, width * .8),
                   Button.button("Add Another", () {}, height, width * .8),
                 ],
-              )
+              ),
+              SizedBox(width: 0.0, height: height * .03),
             ],
           ),
         ),

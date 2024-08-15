@@ -115,7 +115,11 @@ class _UserCaseState extends State<UserCase> {
                         ),
                         Column(
                           children: [
-                            Image(image: AssetImage(user_case3)),
+                            InkWell(
+                                onTap: () {
+                                  context.pushNamed('/batch_details');
+                                },
+                                child: Image(image: AssetImage(user_case3))),
                             SizedBox(width: 0.0, height: height * .01),
                             const Text('Batch Payments')
                           ],

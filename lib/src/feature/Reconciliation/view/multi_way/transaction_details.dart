@@ -1,8 +1,11 @@
+import 'package:firestore/src/feature/Reconciliation/controller/controller.dart';
+import 'package:firestore/src/feature/Reconciliation/repository/repository.dart';
 import 'package:firestore/src/res/strings.dart';
 import 'package:firestore/src/utils/button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class TransactionDetails extends StatefulWidget {
   const TransactionDetails({super.key});
@@ -187,29 +190,22 @@ class _MultiWayReconciliationState extends State<TransactionDetails> {
                       ),
                     ),
                   ),
-                  TextField(
-                    controller: date,
-                    onTap: () {
-                      showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: DateTime.now()
-                                  .subtract(const Duration(days: 365)),
-                              lastDate: DateTime.now())
-                          .then((value) {
-                        if (value == null) return;
-                        setState(() {
-                          final String updatedate =
-                              "${value.day}-${value.month}-${value.year}";
-                          date.text = updatedate;
-                        });
-                      });
-                    },
-                    readOnly: true,
-                    decoration: const InputDecoration(
-                        prefixIcon: Icon(CupertinoIcons.calendar),
-                        border: OutlineInputBorder()),
-                  ),
+                  Consumer<DateProvider>(builder: (context, ref, child) {
+                    return TextField(
+                      controller: date,
+                      onTap: () {
+                        Repository.selectDate(context).then(((value) {
+                          final String datereal =
+                              "${ref.selectedDate.day}-${ref.selectedDate.month}-${ref.selectedDate.year}";
+                          date.text = datereal;
+                        }));
+                      },
+                      readOnly: true,
+                      decoration: const InputDecoration(
+                          prefixIcon: Icon(CupertinoIcons.calendar),
+                          border: OutlineInputBorder()),
+                    );
+                  })
                 ],
               ),
             ),

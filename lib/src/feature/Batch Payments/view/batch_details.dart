@@ -2,19 +2,20 @@ import 'package:firestore/src/utils/button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class EntityDetails extends StatefulWidget {
-  const EntityDetails({super.key});
+class BatchDetails extends StatefulWidget {
+  const BatchDetails({super.key});
 
   @override
-  State<EntityDetails> createState() => _EntityDetailsState();
+  State<BatchDetails> createState() => _BatchDetailsState();
 }
 
+TextEditingController date = TextEditingController();
+TextEditingController batch_type = TextEditingController();
+TextEditingController batch_id = TextEditingController();
 TextEditingController amount = TextEditingController();
-TextEditingController transaction_type = TextEditingController();
-TextEditingController transaction_name = TextEditingController();
-TextEditingController transaction_id = TextEditingController();
+TextEditingController name = TextEditingController();
 
-class _EntityDetailsState extends State<EntityDetails> {
+class _BatchDetailsState extends State<BatchDetails> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -34,7 +35,7 @@ class _EntityDetailsState extends State<EntityDetails> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Multi-way Reconciliation',
+                  'Batch Payments',
                   style: texttheme.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
@@ -45,20 +46,20 @@ class _EntityDetailsState extends State<EntityDetails> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  "Step 3: Enter Entity Details",
+                  'Step 1: Enter Batch Details',
                   style: texttheme.labelLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
-            // Transaction ID*
-            TextFeild.textfield(width, height, "Amount", transaction_id, false),
-            //Transaction Name
-            TextFeild.textfield(
-                width, height, "Amount", transaction_name, false),
-            //Transaction Type*
-            TextFeild.textfield(
-                width, height, "Amount", transaction_type, false),
+            // batch ID*
+            TextFeild.textfield(width, height, "Batch ID", batch_id, false),
+            //Name
+            TextFeild.textfield(width, height, "Name", name, false),
+            //Batch Type*
+            TextFeild.textfield(width, height, "Batch Type", batch_type, false),
+            // Date
+            TextFeild.textfield(width, height, "Date", amount, true),
             //Amount
             TextFeild.textfield(width, height, "Amount", amount, false),
             //two button
@@ -67,11 +68,13 @@ class _EntityDetailsState extends State<EntityDetails> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Button.button("Save", () {
-                  context.pushNamed('/entity_details2');
+                  context.pushNamed('/batch_transaction');
                 }, height, width * .8),
                 Button.button("Add Another", () {}, height, width * .8),
               ],
-            )
+            ),
+
+            SizedBox(width: 0.0, height: height * .03),
           ],
         ),
       )),

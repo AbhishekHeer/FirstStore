@@ -1,20 +1,20 @@
 import 'package:firestore/src/utils/button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class EntityDetails extends StatefulWidget {
-  const EntityDetails({super.key});
+class BatchPayment extends StatefulWidget {
+  const BatchPayment({super.key});
 
   @override
-  State<EntityDetails> createState() => _EntityDetailsState();
+  State<BatchPayment> createState() => _BatchPaymentState();
 }
 
+TextEditingController invoice_number = TextEditingController();
+TextEditingController payment_type = TextEditingController();
+TextEditingController date = TextEditingController();
 TextEditingController amount = TextEditingController();
-TextEditingController transaction_type = TextEditingController();
-TextEditingController transaction_name = TextEditingController();
-TextEditingController transaction_id = TextEditingController();
 
-class _EntityDetailsState extends State<EntityDetails> {
+class _BatchPaymentState extends State<BatchPayment> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -34,7 +34,7 @@ class _EntityDetailsState extends State<EntityDetails> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Multi-way Reconciliation',
+                  'Batch Payments',
                   style: texttheme.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
@@ -45,33 +45,27 @@ class _EntityDetailsState extends State<EntityDetails> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  "Step 3: Enter Entity Details",
+                  'Step 4: Enter Invoice Details',
                   style: texttheme.labelLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
-            // Transaction ID*
-            TextFeild.textfield(width, height, "Amount", transaction_id, false),
-            //Transaction Name
+            //Invoice Number*
             TextFeild.textfield(
-                width, height, "Amount", transaction_name, false),
-            //Transaction Type*
+                width, height, "Invoice Number", invoice_number, false),
+            //Invoice Number*
             TextFeild.textfield(
-                width, height, "Amount", transaction_type, false),
-            //Amount
+                width, height, "Payment Type", payment_type, false),
+            // date
+            TextFeild.textfield(width, height, "Date", date, false),
+
+            // amount
             TextFeild.textfield(width, height, "Amount", amount, false),
-            //two button
             SizedBox(width: 0.0, height: height * .03),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Button.button("Save", () {
-                  context.pushNamed('/entity_details2');
-                }, height, width * .8),
-                Button.button("Add Another", () {}, height, width * .8),
-              ],
-            )
+            //button
+            Button.button("Submit", () {}, height, width),
+            SizedBox(width: 0.0, height: height * .03),
           ],
         ),
       )),

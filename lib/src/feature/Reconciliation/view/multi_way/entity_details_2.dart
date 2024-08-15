@@ -11,6 +11,12 @@ class EntityDetails2 extends StatefulWidget {
   State<EntityDetails2> createState() => _EntityDetails2State();
 }
 
+TextEditingController name = TextEditingController();
+TextEditingController registration_id = TextEditingController();
+TextEditingController contact_number = TextEditingController();
+TextEditingController email = TextEditingController();
+TextEditingController gst_Registration_number = TextEditingController();
+
 class _EntityDetails2State extends State<EntityDetails2> {
   @override
   Widget build(BuildContext context) {
@@ -23,43 +29,8 @@ class _EntityDetails2State extends State<EntityDetails2> {
         child: Column(
           children: <Widget>[
             SizedBox(width: 0.0, height: height * .01),
-            Center(
-              child: Container(
-                  height: height * .07,
-                  width: width,
-                  margin:
-                      EdgeInsets.only(left: width * .05, right: width * .05),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(height * .02),
-                      color: greencolor),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: width * .04),
-                        child: Row(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                context.pop();
-                              },
-                              child: const Icon(
-                                CupertinoIcons.left_chevron,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(width: width * .03, height: 0.0),
-                            Text(
-                              'Reconciliation',
-                              style: texttheme.titleMedium
-                                  ?.copyWith(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  )),
-            ),
+            Appbarhead.apphead(
+                context, "Reconciliation", height, width, texttheme),
             SizedBox(width: 0.0, height: height * .04),
             Padding(
               padding: EdgeInsets.only(left: width * .07),
@@ -72,6 +43,7 @@ class _EntityDetails2State extends State<EntityDetails2> {
                 ),
               ),
             ),
+            //step
             Padding(
               padding: EdgeInsets.only(left: width * .07, top: height * .03),
               child: Align(
@@ -83,141 +55,19 @@ class _EntityDetails2State extends State<EntityDetails2> {
                 ),
               ),
             ),
-            // TRegistration ID*
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Registration ID'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            // Registration ID*
+            TextFeild.textfield(
+                width, height, "Registration ID", registration_id, false),
             // Name
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Name'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            TextFeild.textfield(width, height, "Name", name, false),
             //Contact Number*
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Contact Number'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            TextFeild.textfield(
+                width, height, "Contact Number", contact_number, false),
             // Email
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Email'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            TextFeild.textfield(width, height, "Email", email, false),
             //GST Registration Number*
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('GST Registration Number'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            TextFeild.textfield(width, height, "GST Registration Number",
+                gst_Registration_number, false),
 
             //two button
             SizedBox(width: 0.0, height: height * .03),

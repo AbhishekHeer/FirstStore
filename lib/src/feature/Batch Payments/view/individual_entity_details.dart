@@ -2,19 +2,19 @@ import 'package:firestore/src/utils/button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class EntityDetails extends StatefulWidget {
-  const EntityDetails({super.key});
+class IndividualEntityDetails extends StatefulWidget {
+  const IndividualEntityDetails({super.key});
 
   @override
-  State<EntityDetails> createState() => _EntityDetailsState();
+  State<IndividualEntityDetails> createState() => _BatchEntityDetailsState();
 }
 
-TextEditingController amount = TextEditingController();
-TextEditingController transaction_type = TextEditingController();
-TextEditingController transaction_name = TextEditingController();
-TextEditingController transaction_id = TextEditingController();
+TextEditingController individual_id = TextEditingController();
+TextEditingController name = TextEditingController();
+TextEditingController contact_number = TextEditingController();
+TextEditingController email = TextEditingController();
 
-class _EntityDetailsState extends State<EntityDetails> {
+class _BatchEntityDetailsState extends State<IndividualEntityDetails> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -34,7 +34,7 @@ class _EntityDetailsState extends State<EntityDetails> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Multi-way Reconciliation',
+                  'Batch Payments: Individual',
                   style: texttheme.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
@@ -45,33 +45,34 @@ class _EntityDetailsState extends State<EntityDetails> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  "Step 3: Enter Entity Details",
+                  'Step 3: Enter Entity Details',
                   style: texttheme.labelLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
-            // Transaction ID*
-            TextFeild.textfield(width, height, "Amount", transaction_id, false),
-            //Transaction Name
+            //Individual ID*
             TextFeild.textfield(
-                width, height, "Amount", transaction_name, false),
-            //Transaction Type*
+                width, height, "Individual ID", individual_id, false),
+            //Name*
+            TextFeild.textfield(width, height, "Name", name, false),
+            //Contact Number*
             TextFeild.textfield(
-                width, height, "Amount", transaction_type, false),
-            //Amount
-            TextFeild.textfield(width, height, "Amount", amount, false),
+                width, height, "Contact Number", contact_number, false),
+            //Email
+            TextFeild.textfield(width, height, "Email", email, false),
             //two button
-            SizedBox(width: 0.0, height: height * .03),
+            SizedBox(width: 0.0, height: height * .09),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Button.button("Save", () {
-                  context.pushNamed('/entity_details2');
+                  context.pushNamed('/business_entity_details');
                 }, height, width * .8),
                 Button.button("Add Another", () {}, height, width * .8),
               ],
-            )
+            ),
+            SizedBox(width: 0.0, height: height * .09),
           ],
         ),
       )),

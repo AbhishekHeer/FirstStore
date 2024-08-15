@@ -2,6 +2,11 @@ import 'package:firestore/src/commons/view/loginpage.dart';
 import 'package:firestore/src/commons/view/splashscreen.dart';
 import 'package:firestore/src/commons/view/signuppage.dart';
 import 'package:firestore/src/commons/view/signupsecond.dart';
+import 'package:firestore/src/feature/Batch%20Payments/view/batch_details.dart';
+import 'package:firestore/src/feature/Batch%20Payments/view/batch_payment.dart';
+import 'package:firestore/src/feature/Batch%20Payments/view/business_entity_details.dart';
+import 'package:firestore/src/feature/Batch%20Payments/view/individual_entity_details.dart';
+import 'package:firestore/src/feature/Batch%20Payments/view/batch_transection_details.dart';
 import 'package:firestore/src/feature/Reconciliation/view/mt_ai.dart';
 import 'package:firestore/src/feature/Reconciliation/view/multi_way/account_balance.dart';
 import 'package:firestore/src/feature/Reconciliation/view/multi_way/entity_details.dart';
@@ -13,15 +18,15 @@ import 'package:firestore/src/feature/Reconciliation/view/multi_way/transaction_
 import 'package:firestore/src/feature/Reconciliation/view/reconciliation_main.dart';
 import 'package:firestore/src/feature/Reconciliation/view/user_case.dart';
 import 'package:firestore/src/feature/home/view/Home/homepage.dart';
-import 'package:firestore/src/feature/contact/contactus.dart';
-import 'package:firestore/src/feature/contact/talktous.dart';
+import 'package:firestore/src/feature/contact/view/contactus.dart';
+import 'package:firestore/src/feature/contact/view/talktous.dart';
 import 'package:firestore/src/feature/payments/view/paymentpage.dart';
 import 'package:firestore/src/models/cardmodel.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class Gorouter {
   static GoRouter router = GoRouter(
-    initialLocation: '/transaction_add',
+    initialLocation: '/batch_details',
     routes: [
       GoRoute(
         name: '/home',
@@ -126,6 +131,36 @@ abstract class Gorouter {
           path: '/transaction_add',
           builder: (context, GoRouterState state) {
             return const TransactionAdd();
+          }),
+      GoRoute(
+          name: '/batch_details',
+          path: '/batch_details',
+          builder: (context, GoRouterState state) {
+            return const BatchDetails();
+          }),
+      GoRoute(
+          name: '/batch_transaction',
+          path: '/batch_transaction',
+          builder: (context, GoRouterState state) {
+            return const BatchTransectionDetails();
+          }),
+      GoRoute(
+          name: '/indivitual_entity_details',
+          path: '/indivitual_entity_details',
+          builder: (context, GoRouterState state) {
+            return const IndividualEntityDetails();
+          }),
+      GoRoute(
+          name: '/business_entity_details',
+          path: '/business_entity_details',
+          builder: (context, GoRouterState state) {
+            return const BusinessEntityDetails();
+          }),
+      GoRoute(
+          name: '/batch_payment',
+          path: '/batch_payment',
+          builder: (context, GoRouterState state) {
+            return const BatchPayment();
           }),
     ],
   );
