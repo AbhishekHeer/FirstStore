@@ -1,5 +1,5 @@
-import 'package:firestore/src/res/assets.dart';
-import 'package:firestore/src/res/strings.dart';
+import 'package:firststore/src/res/assets.dart';
+import 'package:firststore/src/res/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

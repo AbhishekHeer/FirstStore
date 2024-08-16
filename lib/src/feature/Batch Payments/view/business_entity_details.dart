@@ -1,4 +1,4 @@
-import 'package:firestore/src/utils/button.dart';
+import 'package:firststore/src/utils/button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -72,7 +72,7 @@ class _BusinessEntityDetailsState extends State<BusinessEntityDetails> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Button.button("Save", () {
-                  context.pushNamed('/batch_payment');
+                  context.pushNamed('/batch_invoice_details');
                 }, height, width * .8),
                 Button.button("Add Another", () {}, height, width * .8),
               ],

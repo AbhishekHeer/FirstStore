@@ -1,4 +1,4 @@
-import 'package:firestore/src/utils/button.dart';
+import 'package:firststore/src/utils/button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,6 +13,7 @@ class BatchTransectionDetails extends StatefulWidget {
 TextEditingController paymentdate = TextEditingController();
 TextEditingController transaction_id = TextEditingController();
 TextEditingController name = TextEditingController();
+TextEditingController payment_type = TextEditingController();
 TextEditingController amount = TextEditingController();
 
 class _BatchTransectionDetailsState extends State<BatchTransectionDetails> {
@@ -58,7 +59,8 @@ class _BatchTransectionDetailsState extends State<BatchTransectionDetails> {
             //Name
             TextFeild.textfield(width, height, "Name", name, false),
             //Payment Type*
-            TextFeild.textfield(width, height, "Payment Type", name, false),
+            TextFeild.textfield(
+                width, height, "Payment Type", payment_type, false),
 
             // Date
             TextFeild.textfield(width, height, "Date", paymentdate, true),

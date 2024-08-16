@@ -1,17 +1,16 @@
-import 'package:firststore/src/res/strings.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firststore/src/utils/button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class AccountBalance extends StatefulWidget {
-  const AccountBalance({super.key});
+class BatchAccountBalance extends StatefulWidget {
+  const BatchAccountBalance({super.key});
 
   @override
-  State<AccountBalance> createState() => _AccountBalanceState();
+  State<BatchAccountBalance> createState() => _BatchAccountBalanceState();
 }
 
-class _AccountBalanceState extends State<AccountBalance> {
+class _BatchAccountBalanceState extends State<BatchAccountBalance> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -31,7 +30,7 @@ class _AccountBalanceState extends State<AccountBalance> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Multi-way Reconciliation',
+                  'Batch Payments',
                   style: texttheme.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
@@ -72,10 +71,15 @@ class _AccountBalanceState extends State<AccountBalance> {
                             ),
                           ),
                           SizedBox(width: width * .04, height: 0.0),
-                          Text(
-                            'Ashish',
-                            style: texttheme.bodyLarge
-                                ?.copyWith(fontSize: height * .022),
+                          SizedBox(
+                            width: width * .2,
+                            height: height * 1,
+                            child: Center(
+                              child: AutoSizeText(
+                                'Ashish',
+                                style: texttheme.bodyLarge?.copyWith(),
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -131,10 +135,15 @@ class _AccountBalanceState extends State<AccountBalance> {
                             ),
                           ),
                           SizedBox(width: width * .04, height: 0.0),
-                          Text(
-                            'Ashish',
-                            style: texttheme.bodyLarge
-                                ?.copyWith(fontSize: height * .022),
+                          SizedBox(
+                            width: width * .2,
+                            height: height * 1,
+                            child: Center(
+                              child: AutoSizeText(
+                                'Paresh Trader',
+                                style: texttheme.bodyLarge?.copyWith(),
+                              ),
+                            ),
                           ),
                         ],
                       ),

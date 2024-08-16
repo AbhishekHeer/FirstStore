@@ -1,6 +1,4 @@
-import 'package:firestore/src/commons/view/loginpage.dart';
-import 'package:firestore/src/commons/view/signuppage.dart';
-import 'package:firestore/src/res/strings.dart';
+import 'package:firststore/src/res/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';

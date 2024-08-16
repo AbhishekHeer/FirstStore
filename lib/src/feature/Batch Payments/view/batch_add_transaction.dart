@@ -1,14 +1,15 @@
 import 'package:firststore/src/utils/button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TransactionAdd extends StatefulWidget {
-  const TransactionAdd({super.key});
+class BatchAddTransaction extends StatefulWidget {
+  const BatchAddTransaction({super.key});
 
   @override
-  State<TransactionAdd> createState() => _TransactionAddState();
+  State<BatchAddTransaction> createState() => _BatchAddTransactionState();
 }
 
-class _TransactionAddState extends State<TransactionAdd> {
+class _BatchAddTransactionState extends State<BatchAddTransaction> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;

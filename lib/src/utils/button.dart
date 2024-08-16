@@ -1,5 +1,5 @@
 import 'package:dropdown_textfield/dropdown_textfield.dart';
-import 'package:firestore/src/res/strings.dart';
+import 'package:firststore/src/res/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -87,8 +87,12 @@ class TextFeild {
     );
   }
 
-  static Widget dropdowntextfield(width, height, String uppername,
-      TextEditingController controller, items) {
+  static Widget dropdowntextfield(
+      width,
+      height,
+      String uppername,
+      SingleValueDropDownController controller,
+      List<DropDownValueModel> items) {
     return Padding(
       padding: EdgeInsets.only(
           left: width * .06, right: width * .06, top: height * .02),
@@ -109,7 +113,11 @@ class TextFeild {
               ),
             ),
           ),
-          DropDownTextField(controller: controller, dropDownList: items)
+          DropDownTextField(
+              textFieldDecoration:
+                  const InputDecoration(border: OutlineInputBorder()),
+              controller: controller,
+              dropDownList: items)
         ],
       ),
     );

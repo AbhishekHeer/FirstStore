@@ -1,6 +1,5 @@
-import 'package:firestore/src/feature/product/view/allproduct.dart';
-import 'package:firestore/src/res/strings.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:firststore/src/feature/product/view/allproduct.dart';
+import 'package:firststore/src/res/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -117,47 +116,6 @@ class _HomepageState extends State<Homepage> {
             ]),
           ),
         ),
-      ),
-
-      bottomNavigationBar: SafeArea(
-        child: Container(
-            height: height * .06,
-            width: width * .9,
-            margin: EdgeInsets.only(
-                bottom: height * .02, left: width * .05, right: width * .05),
-            decoration: BoxDecoration(
-              color: Colors.white, // Background color of the bottom bar
-              borderRadius: BorderRadius.circular(height * .01),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: const Offset(0, -2), // Shadow position
-                ),
-              ],
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Icon(
-                  CupertinoIcons.home,
-                  size: height * .025,
-                ),
-                Icon(
-                  Icons.payment_outlined,
-                  size: height * .025,
-                ),
-                Icon(
-                  CupertinoIcons.bookmark,
-                  size: height * .025,
-                ),
-                Icon(
-                  FontAwesomeIcons.buildingColumns,
-                  size: height * .025,
-                ),
-              ],
-            )),
       ),
     );
   }

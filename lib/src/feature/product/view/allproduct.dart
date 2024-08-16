@@ -1,4 +1,5 @@
-import 'package:firestore/src/feature/product/view/card.dart';
+import 'package:firststore/src/feature/product/view/card.dart';
+import 'package:firststore/src/res/assets.dart';
 import 'package:flutter/material.dart';
 
 class Allproduct extends StatefulWidget {
@@ -35,13 +36,13 @@ class _AllproductState extends State<Allproduct> {
               productname: "Parafin",
               productdescription:
                   "Gain Access to grow capital with modern treasury",
-              productimage: 'https://picsum.photos/200/300',
+              productimage: payment_1,
             ),
             ProductCard(
               productname: "Navan",
               productdescription:
                   "Re-imagine expense management with Modern Treasury.",
-              productimage: 'https://picsum.photos/200/300',
+              productimage: payment_2,
             ),
           ],
         ),
@@ -51,12 +52,12 @@ class _AllproductState extends State<Allproduct> {
             ProductCard(
               productname: "Outdoorsy",
               productdescription: "Lorem ipsum dolor sit amet",
-              productimage: 'https://picsum.photos/200/300',
+              productimage: payment_3,
             ),
             ProductCard(
               productname: "C2FO",
               productdescription: "Lorem ipsum dolor sit amet",
-              productimage: 'https://picsum.photos/200/300',
+              productimage: payment_4,
             ),
           ],
         )

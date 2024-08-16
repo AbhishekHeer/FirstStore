@@ -1,5 +1,5 @@
-import 'package:firestore/src/utils/button.dart';
-import 'package:firestore/src/utils/snackbar_service.dart';
+import 'package:firststore/src/utils/button.dart';
+import 'package:firststore/src/utils/snackbar_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

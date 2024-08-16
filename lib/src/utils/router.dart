@@ -1,48 +1,56 @@
-import 'package:firestore/src/commons/view/loginpage.dart';
-import 'package:firestore/src/commons/view/splashscreen.dart';
-import 'package:firestore/src/commons/view/signuppage.dart';
-import 'package:firestore/src/commons/view/signupsecond.dart';
-import 'package:firestore/src/feature/Batch%20Payments/view/batch_details.dart';
-import 'package:firestore/src/feature/Batch%20Payments/view/batch_payment.dart';
-import 'package:firestore/src/feature/Batch%20Payments/view/business_entity_details.dart';
-import 'package:firestore/src/feature/Batch%20Payments/view/individual_entity_details.dart';
-import 'package:firestore/src/feature/Batch%20Payments/view/batch_transection_details.dart';
-import 'package:firestore/src/feature/Reconciliation/view/mt_ai.dart';
-import 'package:firestore/src/feature/Reconciliation/view/multi_way/account_balance.dart';
-import 'package:firestore/src/feature/Reconciliation/view/multi_way/entity_details.dart';
-import 'package:firestore/src/feature/Reconciliation/view/multi_way/entity_details_2.dart';
-import 'package:firestore/src/feature/Reconciliation/view/multi_way/entity_type.dart';
-import 'package:firestore/src/feature/Reconciliation/view/multi_way/invoice_details.dart';
-import 'package:firestore/src/feature/Reconciliation/view/multi_way/transaction_add.dart';
-import 'package:firestore/src/feature/Reconciliation/view/multi_way/transaction_details.dart';
-import 'package:firestore/src/feature/Reconciliation/view/reconciliation_main.dart';
-import 'package:firestore/src/feature/Reconciliation/view/user_case.dart';
-import 'package:firestore/src/feature/home/view/Home/homepage.dart';
-import 'package:firestore/src/feature/contact/view/contactus.dart';
-import 'package:firestore/src/feature/contact/view/talktous.dart';
-import 'package:firestore/src/feature/payments/view/paymentpage.dart';
-import 'package:firestore/src/models/cardmodel.dart';
+import 'package:firststore/src/app.dart';
+import 'package:firststore/src/commons/view/loginpage.dart';
+import 'package:firststore/src/commons/view/splashscreen.dart';
+import 'package:firststore/src/commons/view/signuppage.dart';
+import 'package:firststore/src/commons/view/signupsecond.dart';
+import 'package:firststore/src/feature/Batch%20Payments/view/batch_account_balance.dart';
+import 'package:firststore/src/feature/Batch%20Payments/view/batch_add_transaction.dart';
+import 'package:firststore/src/feature/Batch%20Payments/view/batch_details.dart';
+import 'package:firststore/src/feature/Batch%20Payments/view/invoice_details.dart';
+import 'package:firststore/src/feature/Batch%20Payments/view/business_entity_details.dart';
+import 'package:firststore/src/feature/Batch%20Payments/view/individual_entity_details.dart';
+import 'package:firststore/src/feature/Batch%20Payments/view/batch_transection_details.dart';
+import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_entity_type.dart';
+import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_individual.dart';
+import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_transaction_details.dart';
+import 'package:firststore/src/feature/Reconciliation/view/mt_ai.dart';
+import 'package:firststore/src/feature/Reconciliation/view/multi_way/account_balance.dart';
+import 'package:firststore/src/feature/Reconciliation/view/multi_way/entity_details.dart';
+import 'package:firststore/src/feature/Reconciliation/view/multi_way/entity_details_2.dart';
+import 'package:firststore/src/feature/Reconciliation/view/multi_way/entity_type.dart';
+import 'package:firststore/src/feature/Reconciliation/view/multi_way/invoice_details.dart';
+import 'package:firststore/src/feature/Reconciliation/view/multi_way/transaction_add.dart';
+import 'package:firststore/src/feature/Reconciliation/view/multi_way/transaction_details.dart';
+import 'package:firststore/src/feature/Reconciliation/view/reconciliation_main.dart';
+import 'package:firststore/src/feature/Reconciliation/view/user_case.dart';
+import 'package:firststore/src/feature/home/view/Home/homepage.dart';
+import 'package:firststore/src/feature/contact/view/contactus.dart';
+import 'package:firststore/src/feature/contact/view/talktous.dart';
+import 'package:firststore/src/feature/payments/view/paymentpage.dart';
+import 'package:firststore/src/models/cardmodel.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class Gorouter {
   static GoRouter router = GoRouter(
-    initialLocation: '/batch_details',
+    initialLocation: '/mt_ai',
     routes: [
-      GoRoute(
-        name: '/home',
-        path: '/home',
-        builder: (context, state) => const Homepage(),
-      ),
-      GoRoute(
-        name: '/signup',
-        path: '/signup',
-        builder: (context, state) => const SignupPage(),
-      ),
       GoRoute(
         name: '/',
         path: '/',
         builder: (context, state) => const Splashscreen(),
       ),
+      GoRoute(
+        name: '/app',
+        path: '/app',
+        builder: (context, state) => const App(),
+      ),
+      //auth
+      GoRoute(
+        name: '/signup',
+        path: '/signup',
+        builder: (context, state) => const SignupPage(),
+      ),
+
       GoRoute(
         name: '/login',
         path: '/login',
@@ -53,6 +61,8 @@ abstract class Gorouter {
         path: '/signupsecond',
         builder: (context, state) => const Signupsecond(),
       ),
+
+      //contact us
       GoRoute(
         name: '/contactus',
         path: '/contactus',
@@ -63,6 +73,14 @@ abstract class Gorouter {
         path: '/talktous',
         builder: (context, state) => const Talktous(),
       ),
+      //home
+      GoRoute(
+        name: '/home',
+        path: '/home',
+        builder: (context, state) => const Homepage(),
+      ),
+
+      //Payments
       GoRoute(
           name: '/paymentpage',
           path: '/paymentpage',
@@ -72,6 +90,7 @@ abstract class Gorouter {
               cardmodel: cardmodel,
             );
           }),
+
       GoRoute(
           name: '/recomain',
           path: '/recomain',
@@ -90,6 +109,8 @@ abstract class Gorouter {
           builder: (context, GoRouterState state) {
             return const MtAi();
           }),
+      //Reconciliation
+
       GoRoute(
           name: '/transaction_details',
           path: '/transaction_details',
@@ -132,6 +153,8 @@ abstract class Gorouter {
           builder: (context, GoRouterState state) {
             return const TransactionAdd();
           }),
+      //batch payment
+
       GoRoute(
           name: '/batch_details',
           path: '/batch_details',
@@ -157,10 +180,42 @@ abstract class Gorouter {
             return const BusinessEntityDetails();
           }),
       GoRoute(
-          name: '/batch_payment',
-          path: '/batch_payment',
+          name: '/batch_invoice_details',
+          path: '/batch_invoice_details',
           builder: (context, GoRouterState state) {
-            return const BatchPayment();
+            return const Batch_Invoice_Details();
+          }),
+      GoRoute(
+          name: '/batch_account_balance',
+          path: '/batch_account_balance',
+          builder: (context, GoRouterState state) {
+            return const BatchAccountBalance();
+          }),
+      GoRoute(
+          name: '/batch_add_transaction',
+          path: '/batch_add_transaction',
+          builder: (context, GoRouterState state) {
+            return const BatchAddTransaction();
+          }),
+
+      //Intercompany Reconciliation
+      GoRoute(
+          name: '/intercompany_transaction_details',
+          path: '/intercompany_transaction_details',
+          builder: (context, GoRouterState state) {
+            return const IntercompanyTransactionDetails();
+          }),
+      GoRoute(
+          name: '/intercompany_entity_details',
+          path: '/intercompany_entity_details',
+          builder: (context, GoRouterState state) {
+            return const IntercompanyEntityType();
+          }),
+      GoRoute(
+          name: '/intercompany_individual',
+          path: '/intercompany_individual',
+          builder: (context, GoRouterState state) {
+            return const IntercompanyIndividual();
           }),
     ],
   );

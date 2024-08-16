@@ -1,5 +1,5 @@
-import 'package:firestore/src/res/assets.dart';
-import 'package:firestore/src/res/strings.dart';
+import 'package:firststore/src/res/assets.dart';
+import 'package:firststore/src/res/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -85,7 +85,8 @@ class _UserCaseState extends State<UserCase> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
-                          onTap: () => context.pushNamed('/multi_way1'),
+                          onTap: () =>
+                              context.pushNamed('/transaction_details'),
                           child: Column(
                             children: [
                               Image(image: AssetImage(user_case1)),
@@ -106,12 +107,18 @@ class _UserCaseState extends State<UserCase> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Column(
-                          children: [
-                            Image(image: AssetImage(user_case4)),
-                            SizedBox(width: 0.0, height: height * .01),
-                            const Text('Intercompany')
-                          ],
+                        InkWell(
+                          onTap: () {
+                            context
+                                .pushNamed('/intercompany_transaction_details');
+                          },
+                          child: Column(
+                            children: [
+                              Image(image: AssetImage(user_case4)),
+                              SizedBox(width: 0.0, height: height * .01),
+                              const Text('Intercompany')
+                            ],
+                          ),
                         ),
                         Column(
                           children: [

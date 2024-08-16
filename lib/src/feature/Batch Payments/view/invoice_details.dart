@@ -1,12 +1,12 @@
-import 'package:firestore/src/utils/button.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:firststore/src/utils/button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class BatchPayment extends StatefulWidget {
-  const BatchPayment({super.key});
+class Batch_Invoice_Details extends StatefulWidget {
+  const Batch_Invoice_Details({super.key});
 
   @override
-  State<BatchPayment> createState() => _BatchPaymentState();
+  State<Batch_Invoice_Details> createState() => _BatchPaymentState();
 }
 
 TextEditingController invoice_number = TextEditingController();
@@ -14,7 +14,7 @@ TextEditingController payment_type = TextEditingController();
 TextEditingController date = TextEditingController();
 TextEditingController amount = TextEditingController();
 
-class _BatchPaymentState extends State<BatchPayment> {
+class _BatchPaymentState extends State<Batch_Invoice_Details> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -64,7 +64,9 @@ class _BatchPaymentState extends State<BatchPayment> {
             TextFeild.textfield(width, height, "Amount", amount, false),
             SizedBox(width: 0.0, height: height * .03),
             //button
-            Button.button("Submit", () {}, height, width),
+            Button.button("Submit", () {
+              context.pushNamed("/batch_account_balance");
+            }, height, width),
             SizedBox(width: 0.0, height: height * .03),
           ],
         ),

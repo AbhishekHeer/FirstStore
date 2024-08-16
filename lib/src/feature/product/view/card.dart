@@ -1,7 +1,6 @@
-import 'package:firestore/src/models/cardmodel.dart';
+import 'package:firststore/src/models/cardmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 // ignore: must_be_immutable

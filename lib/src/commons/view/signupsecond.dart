@@ -1,6 +1,6 @@
-import 'package:firestore/src/commons/view/loginpage.dart';
-import 'package:firestore/src/utils/button.dart';
-import 'package:firestore/src/utils/snackbar_service.dart';
+import 'package:firststore/src/commons/view/loginpage.dart';
+import 'package:firststore/src/utils/button.dart';
+import 'package:firststore/src/utils/snackbar_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -136,7 +136,7 @@ class _SignupsecondState extends State<Signupsecond> {
                     SnackbarService.showSnackbar(
                         context, "Password Not Matched !!", Colors.red);
                   } else {
-                    context.pushNamed('/home');
+                    context.pushNamed('/app');
                   }
                 }, height, width),
               ),

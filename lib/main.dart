@@ -1,6 +1,7 @@
-import 'package:firestore/src/feature/Batch%20Payments/controller/controller.dart';
-import 'package:firestore/src/feature/Reconciliation/controller/controller.dart';
-import 'package:firestore/src/utils/router.dart';
+import 'package:firststore/src/feature/Batch%20Payments/controller/controller.dart';
+import 'package:firststore/src/feature/Reconciliation/controller/controller.dart';
+import 'package:firststore/src/feature/home/controller/navigate_controller.dart';
+import 'package:firststore/src/utils/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => DateProvider()),
-        ChangeNotifierProvider(create: (_) => BatchDatapicker())
+        ChangeNotifierProvider(create: (_) => BatchDatapicker()),
+        ChangeNotifierProvider(create: (_) => NavigateNotifier())
       ],
       child: MaterialApp.router(
         title: 'FirstStore',
