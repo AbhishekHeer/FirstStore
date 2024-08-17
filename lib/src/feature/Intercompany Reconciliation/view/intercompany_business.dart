@@ -1,21 +1,22 @@
 import 'package:firststore/src/utils/button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class EntityDetails2 extends StatefulWidget {
-  const EntityDetails2({super.key});
+class IntercompanyBusiness extends StatefulWidget {
+  const IntercompanyBusiness({super.key});
 
   @override
-  State<EntityDetails2> createState() => _EntityDetails2State();
+  State<IntercompanyBusiness> createState() => _IntercompanyBusinessState();
 }
 
-TextEditingController name = TextEditingController();
-TextEditingController registration_id = TextEditingController();
+TextEditingController rigistration = TextEditingController();
+TextEditingController company_name = TextEditingController();
 TextEditingController contact_number = TextEditingController();
 TextEditingController email = TextEditingController();
-TextEditingController gst_Registration_number = TextEditingController();
+TextEditingController gst_number = TextEditingController();
 
-class _EntityDetails2State extends State<EntityDetails2> {
+class _IntercompanyBusinessState extends State<IntercompanyBusiness> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -35,13 +36,12 @@ class _EntityDetails2State extends State<EntityDetails2> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Multi-way Reconciliation: Business',
-                  style: texttheme.titleLarge
-                      ?.copyWith(fontWeight: FontWeight.w400),
+                  'Intercompany Reconciliation: Business',
+                  style: texttheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w400, fontSize: height * .023),
                 ),
               ),
             ),
-            //step
             Padding(
               padding: EdgeInsets.only(left: width * .07, top: height * .03),
               child: Align(
@@ -53,32 +53,25 @@ class _EntityDetails2State extends State<EntityDetails2> {
                 ),
               ),
             ),
-            // Registration ID*
+            //Registration ID*
             TextFeild.textfield(
-                width, height, "Registration ID", registration_id, false),
-            // Name
-            TextFeild.textfield(width, height, "Name", name, false),
-            //Contact Number*
+                width, height, "Registration ID*", rigistration, false),
+            //Compony Name
+            TextFeild.textfield(
+                width, height, "Compony Name", company_name, false),
+            // Contact Number*
             TextFeild.textfield(
                 width, height, "Contact Number", contact_number, false),
-            // Email
+            //Email*
             TextFeild.textfield(width, height, "Email", email, false),
-            //GST Registration Number*
-            TextFeild.textfield(width, height, "GST Registration Number",
-                gst_Registration_number, false),
-
-            //two button
-            SizedBox(width: 0.0, height: height * .03),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Button.button("Save", () {
-                  context.pushNamed('/invoice_details');
-                }, height, width * .8),
-                Button.button("Add Another", () {}, height, width * .8),
-              ],
-            ),
-            SizedBox(width: 0.0, height: height * .03),
+            //GST Registration No.*
+            TextFeild.textfield(
+                width, height, "GST Registration No.", gst_number, false),
+            SizedBox(width: 0.0, height: height * .05),
+            Button.button("Next", () {
+              context.pushNamed("/intercompany_invoice");
+            }, height, width * .8),
+            SizedBox(width: 0.0, height: height * .05),
           ],
         ),
       )),

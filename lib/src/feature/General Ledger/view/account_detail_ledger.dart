@@ -1,21 +1,20 @@
-import 'package:firststore/src/utils/button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class EntityDetails2 extends StatefulWidget {
-  const EntityDetails2({super.key});
+import '../../../utils/button.dart';
+
+class AccountDetailLedger extends StatefulWidget {
+  const AccountDetailLedger({super.key});
 
   @override
-  State<EntityDetails2> createState() => _EntityDetails2State();
+  State<AccountDetailLedger> createState() => _AccountDetailLedgerState();
 }
 
-TextEditingController name = TextEditingController();
-TextEditingController registration_id = TextEditingController();
-TextEditingController contact_number = TextEditingController();
-TextEditingController email = TextEditingController();
-TextEditingController gst_Registration_number = TextEditingController();
+TextEditingController tax_identification_number = TextEditingController();
+TextEditingController account_number = TextEditingController();
+TextEditingController account_holder_name = TextEditingController();
 
-class _EntityDetails2State extends State<EntityDetails2> {
+class _AccountDetailLedgerState extends State<AccountDetailLedger> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -25,55 +24,48 @@ class _EntityDetails2State extends State<EntityDetails2> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
+          children: [
             SizedBox(width: 0.0, height: height * .01),
-            Appbarhead.apphead(
-                context, "Reconciliation", height, width, texttheme),
+            Appbarhead.apphead(context, "Ledgers", height, width, texttheme),
             SizedBox(width: 0.0, height: height * .04),
             Padding(
               padding: EdgeInsets.only(left: width * .07),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Multi-way Reconciliation: Business',
+                  'General Ledger',
                   style: texttheme.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
-            //step
             Padding(
               padding: EdgeInsets.only(left: width * .07, top: height * .03),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Step 3: Enter Entity Details',
+                  'Step 2: Account Details',
                   style: texttheme.labelLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
-            // Registration ID*
+            //Tax Identification Number
+            TextFeild.textfield(width, height, "Tax Identification Number",
+                tax_identification_number, false),
+            //Account Number
             TextFeild.textfield(
-                width, height, "Registration ID", registration_id, false),
-            // Name
-            TextFeild.textfield(width, height, "Name", name, false),
-            //Contact Number*
-            TextFeild.textfield(
-                width, height, "Contact Number", contact_number, false),
-            // Email
-            TextFeild.textfield(width, height, "Email", email, false),
-            //GST Registration Number*
-            TextFeild.textfield(width, height, "GST Registration Number",
-                gst_Registration_number, false),
-
+                width, height, "Account Number", account_number, false),
+            //Account Holder Name
+            TextFeild.textfield(width, height, "Account Holder Name",
+                account_holder_name, false),
             //two button
-            SizedBox(width: 0.0, height: height * .03),
+            SizedBox(width: 0.0, height: height * .05),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Button.button("Save", () {
-                  context.pushNamed('/invoice_details');
+                  context.pushNamed('/transaction_ledger');
                 }, height, width * .8),
                 Button.button("Add Another", () {}, height, width * .8),
               ],

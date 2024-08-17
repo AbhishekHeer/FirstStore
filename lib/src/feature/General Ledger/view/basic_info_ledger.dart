@@ -1,21 +1,22 @@
-import 'package:firststore/src/utils/button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class EntityDetails2 extends StatefulWidget {
-  const EntityDetails2({super.key});
+import '../../../utils/button.dart';
+
+class BasicInfoLedger extends StatefulWidget {
+  const BasicInfoLedger({super.key});
 
   @override
-  State<EntityDetails2> createState() => _EntityDetails2State();
+  State<BasicInfoLedger> createState() => _BasicInfoLedgerState();
 }
 
-TextEditingController name = TextEditingController();
-TextEditingController registration_id = TextEditingController();
-TextEditingController contact_number = TextEditingController();
+TextEditingController first_name = TextEditingController();
+TextEditingController last_name = TextEditingController();
 TextEditingController email = TextEditingController();
-TextEditingController gst_Registration_number = TextEditingController();
+TextEditingController contact_number = TextEditingController();
+TextEditingController company_name = TextEditingController();
 
-class _EntityDetails2State extends State<EntityDetails2> {
+class _BasicInfoLedgerState extends State<BasicInfoLedger> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -25,47 +26,46 @@ class _EntityDetails2State extends State<EntityDetails2> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
+          children: [
             SizedBox(width: 0.0, height: height * .01),
-            Appbarhead.apphead(
-                context, "Reconciliation", height, width, texttheme),
+            Appbarhead.apphead(context, "Ledger", height, width, texttheme),
             SizedBox(width: 0.0, height: height * .04),
             Padding(
               padding: EdgeInsets.only(left: width * .07),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Multi-way Reconciliation: Business',
+                  'General Ledger',
                   style: texttheme.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
-            //step
             Padding(
               padding: EdgeInsets.only(left: width * .07, top: height * .03),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Step 3: Enter Entity Details',
+                  'Step 1: Basic Information',
                   style: texttheme.labelLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
-            // Registration ID*
-            TextFeild.textfield(
-                width, height, "Registration ID", registration_id, false),
-            // Name
-            TextFeild.textfield(width, height, "Name", name, false),
-            //Contact Number*
+
+            //First Name
+            TextFeild.textfield(width, height, "First Name", first_name, false),
+            //Last Name
+            TextFeild.textfield(width, height, "Last Name", last_name, false),
+            //Contact Number
             TextFeild.textfield(
                 width, height, "Contact Number", contact_number, false),
+
             // Email
-            TextFeild.textfield(width, height, "Email", email, false),
-            //GST Registration Number*
-            TextFeild.textfield(width, height, "GST Registration Number",
-                gst_Registration_number, false),
+            TextFeild.textfield(width, height, "Email", email, true),
+            //Company Name
+            TextFeild.textfield(
+                width, height, "Company Name", company_name, false),
 
             //two button
             SizedBox(width: 0.0, height: height * .03),
@@ -73,7 +73,7 @@ class _EntityDetails2State extends State<EntityDetails2> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Button.button("Save", () {
-                  context.pushNamed('/invoice_details');
+                  context.pushNamed('/account_details_ledger');
                 }, height, width * .8),
                 Button.button("Add Another", () {}, height, width * .8),
               ],

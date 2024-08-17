@@ -10,8 +10,17 @@ import 'package:firststore/src/feature/Batch%20Payments/view/invoice_details.dar
 import 'package:firststore/src/feature/Batch%20Payments/view/business_entity_details.dart';
 import 'package:firststore/src/feature/Batch%20Payments/view/individual_entity_details.dart';
 import 'package:firststore/src/feature/Batch%20Payments/view/batch_transection_details.dart';
+import 'package:firststore/src/feature/General%20Ledger/view/account_detail_ledger.dart';
+import 'package:firststore/src/feature/General%20Ledger/view/basic_info_ledger.dart';
+import 'package:firststore/src/feature/General%20Ledger/view/first_ledger.dart';
+import 'package:firststore/src/feature/General%20Ledger/view/general_ledger_home.dart';
+import 'package:firststore/src/feature/General%20Ledger/view/transaction_details_ledger.dart';
+import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_add_transaction.dart';
+import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_balance.dart';
+import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_business.dart';
 import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_entity_type.dart';
 import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_individual.dart';
+import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_invoice.dart';
 import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_transaction_details.dart';
 import 'package:firststore/src/feature/Reconciliation/view/mt_ai.dart';
 import 'package:firststore/src/feature/Reconciliation/view/multi_way/account_balance.dart';
@@ -32,7 +41,7 @@ import 'package:go_router/go_router.dart';
 
 abstract class Gorouter {
   static GoRouter router = GoRouter(
-    initialLocation: '/mt_ai',
+    initialLocation: '/Ledgers_home',
     routes: [
       GoRoute(
         name: '/',
@@ -216,6 +225,62 @@ abstract class Gorouter {
           path: '/intercompany_individual',
           builder: (context, GoRouterState state) {
             return const IntercompanyIndividual();
+          }),
+      GoRoute(
+          name: '/intercompany_business',
+          path: '/intercompany_business',
+          builder: (context, GoRouterState state) {
+            return const IntercompanyBusiness();
+          }),
+      GoRoute(
+          name: '/intercompany_invoice',
+          path: '/intercompany_invoice',
+          builder: (context, GoRouterState state) {
+            return const IntercompanyInvoice();
+          }),
+      GoRoute(
+          name: '/intercompany_balance',
+          path: '/intercompany_balance',
+          builder: (context, GoRouterState state) {
+            return const IntercompanyBalance();
+          }),
+      GoRoute(
+          name: '/intercompany_add_transaction',
+          path: '/intercompany_add_transaction',
+          builder: (context, GoRouterState state) {
+            return const IntercompanyAddTransaction();
+          }),
+
+      //General Ledger
+      GoRoute(
+          name: '/Ledgers_home',
+          path: '/Ledgers_home',
+          builder: (context, GoRouterState state) {
+            return const GeneralLedgerHome();
+          }),
+      GoRoute(
+          name: '/first_ledger',
+          path: '/first_ledger',
+          builder: (context, GoRouterState state) {
+            return const FirstLedger();
+          }),
+      GoRoute(
+          name: '/basic_info_ledger',
+          path: '/basic_info_ledger',
+          builder: (context, GoRouterState state) {
+            return const BasicInfoLedger();
+          }),
+      GoRoute(
+          name: '/account_details_ledger',
+          path: '/account_details_ledger',
+          builder: (context, GoRouterState state) {
+            return const AccountDetailLedger();
+          }),
+      GoRoute(
+          name: '/transaction_ledger',
+          path: '/transaction_ledger',
+          builder: (context, GoRouterState state) {
+            return const TransactionDetailsLedger();
           }),
     ],
   );

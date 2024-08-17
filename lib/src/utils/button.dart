@@ -21,8 +21,10 @@ class Button {
         child: Center(
           child: Text(
             text,
-            style:
-                const TextStyle(color: textcolor, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              color: textcolor,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),

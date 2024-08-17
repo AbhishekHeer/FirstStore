@@ -1,20 +1,22 @@
-import 'package:firststore/src/utils/button.dart';
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class IntercompanyIndividual extends StatefulWidget {
-  const IntercompanyIndividual({super.key});
+import '../../../utils/button.dart';
+
+class IntercompanyInvoice extends StatefulWidget {
+  const IntercompanyInvoice({super.key});
 
   @override
-  State<IntercompanyIndividual> createState() => _IntercompanyIndividualState();
+  State<IntercompanyInvoice> createState() => _IntercompanyInvoiceState();
 }
 
-TextEditingController individual_id = TextEditingController();
-TextEditingController name = TextEditingController();
-TextEditingController contact_number = TextEditingController();
-TextEditingController email = TextEditingController();
+TextEditingController invoice_number = TextEditingController();
+SingleValueDropDownController payment_type = SingleValueDropDownController();
+TextEditingController amount = TextEditingController();
+TextEditingController date = TextEditingController();
 
-class _IntercompanyIndividualState extends State<IntercompanyIndividual> {
+class _IntercompanyInvoiceState extends State<IntercompanyInvoice> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -34,7 +36,7 @@ class _IntercompanyIndividualState extends State<IntercompanyIndividual> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Intercompany Reconciliation: Individual',
+                  'Intercompany Reconciliation',
                   style: texttheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w400, fontSize: height * .023),
                 ),
@@ -51,19 +53,23 @@ class _IntercompanyIndividualState extends State<IntercompanyIndividual> {
                 ),
               ),
             ),
-            //Individual ID*
+            //Invoice Number*
             TextFeild.textfield(
-                width, height, "Individual ID", individual_id, false),
-            //Name
-            TextFeild.textfield(width, height, "Name", name, false),
-            //Contact Number*
-            TextFeild.textfield(
-                width, height, "Contact Number", contact_number, false),
-            //Email*
-            TextFeild.textfield(width, height, "Email", email, false),
+                width, height, "Registration ID*", invoice_number, false),
+            //Payment Type*
+            TextFeild.dropdowntextfield(
+                width, height, "Payment Type", payment_type, [
+              const DropDownValueModel(name: "cash", value: "1"),
+              const DropDownValueModel(name: "online", value: "2"),
+            ]),
+            // Contact Number*
+            TextFeild.textfield(width, height, "Date", date, true),
+            //Amount*
+            TextFeild.textfield(width, height, "Email", amount, false),
+
             SizedBox(width: 0.0, height: height * .05),
             Button.button("Next", () {
-              context.pushNamed("/intercompany_business");
+              context.pushNamed("/intercompany_balance");
             }, height, width * .8),
             SizedBox(width: 0.0, height: height * .05),
           ],

@@ -9,9 +9,9 @@ class EntityDetails extends StatefulWidget {
   State<EntityDetails> createState() => _EntityDetailsState();
 }
 
-TextEditingController amount = TextEditingController();
-TextEditingController transaction_type = TextEditingController();
-TextEditingController transaction_name = TextEditingController();
+TextEditingController email = TextEditingController();
+TextEditingController contact_number = TextEditingController();
+TextEditingController name = TextEditingController();
 TextEditingController transaction_id = TextEditingController();
 
 class _EntityDetailsState extends State<EntityDetails> {
@@ -34,7 +34,7 @@ class _EntityDetailsState extends State<EntityDetails> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Multi-way Reconciliation',
+                  'Multi-way Reconciliation: Individual',
                   style: texttheme.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
@@ -51,23 +51,23 @@ class _EntityDetailsState extends State<EntityDetails> {
                 ),
               ),
             ),
-            // Transaction ID*
-            TextFeild.textfield(width, height, "Amount", transaction_id, false),
-            //Transaction Name
+            //Individual ID*
             TextFeild.textfield(
-                width, height, "Amount", transaction_name, false),
-            //Transaction Type*
+                width, height, "Individual ID", transaction_id, false),
+            //Name
+            TextFeild.textfield(width, height, "Name*", name, false),
+            //Contact Number*
             TextFeild.textfield(
-                width, height, "Amount", transaction_type, false),
-            //Amount
-            TextFeild.textfield(width, height, "Amount", amount, false),
+                width, height, "Contact Number", contact_number, false),
+            //Email
+            TextFeild.textfield(width, height, "Amount", email, false),
             //two button
             SizedBox(width: 0.0, height: height * .03),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Button.button("Save", () {
-                  context.pushNamed('/entity_details2');
+                  context.pushNamed('/invoice_details');
                 }, height, width * .8),
                 Button.button("Add Another", () {}, height, width * .8),
               ],
