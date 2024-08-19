@@ -1,4 +1,4 @@
-import 'package:firststore/src/commons/view/loginpage.dart';
+import 'package:firststore/src/feature/login/view/loginpage.dart';
 import 'package:firststore/src/utils/button.dart';
 import 'package:firststore/src/utils/snackbar_service.dart';
 import 'package:flutter/material.dart';
@@ -34,94 +34,15 @@ class _SignupsecondState extends State<Signupsecond> {
                 style: texttheme.headlineLarge
                     ?.copyWith(fontWeight: FontWeight.bold),
               ),
-            ), //username
+            ),
             SizedBox(width: 0.0, height: height * .03),
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('User Name'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: user_name,
-                    decoration:
-                        const InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            //username
+            TextFeild.textfield(width, height, "User Name", user_name, false),
             //password
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Password'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: password,
-                    decoration:
-                        const InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            TextFeild.textfield(width, height, "Password", password, false),
             //comfirm password
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Comfirm Password'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: comfirm_password,
-                    decoration:
-                        const InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            TextFeild.textfield(
+                width, height, "Comfirm Password", comfirm_password, false),
 
             Padding(
               padding: EdgeInsets.only(top: height * .24, bottom: height * .03),

@@ -36,13 +36,13 @@ class _AllproductState extends State<Allproduct> {
               productname: "Parafin",
               productdescription:
                   "Gain Access to grow capital with modern treasury",
-              productimage: payment_1,
+              productimage: payment_one,
             ),
             ProductCard(
               productname: "Navan",
               productdescription:
                   "Re-imagine expense management with Modern Treasury.",
-              productimage: payment_2,
+              productimage: payment_two,
             ),
           ],
         ),
@@ -52,12 +52,12 @@ class _AllproductState extends State<Allproduct> {
             ProductCard(
               productname: "Outdoorsy",
               productdescription: "Lorem ipsum dolor sit amet",
-              productimage: payment_3,
+              productimage: payment_three,
             ),
             ProductCard(
               productname: "C2FO",
               productdescription: "Lorem ipsum dolor sit amet",
-              productimage: payment_4,
+              productimage: payment_four,
             ),
           ],
         )

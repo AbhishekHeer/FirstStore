@@ -1,4 +1,5 @@
 import 'package:dropdown_textfield/dropdown_textfield.dart';
+import 'package:firststore/src/utils/snackbar_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -53,12 +54,20 @@ class _FirstLedgerState extends State<FirstLedger> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Button.button("Next", () {
-                  if (ledgerTypeController.dropDownValue != null) {
+                  if (ledgerTypeController.dropDownValue?.value == "General") {
                     context.pushNamed("/basic_info_ledger");
+                  } else if (ledgerTypeController.dropDownValue?.value ==
+                      "Sales") {
+                    context.pushNamed('/customer_info_sales');
+                  } else if (ledgerTypeController.dropDownValue?.value ==
+                      "Cash") {
+                    context.pushNamed("/transaction_cash_ledger");
                   } else {
-                    return;
+                    SnackbarService.showSnackbar(
+                        context, "Please Select Ledger Type", Colors.red);
                   }
-                }, height, width)
+                }, height, width),
+                SizedBox(height: height * .03),
               ],
             )
           ],

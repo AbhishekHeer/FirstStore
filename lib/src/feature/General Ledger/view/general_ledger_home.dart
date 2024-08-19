@@ -104,7 +104,7 @@ class _GeneralLedgerHomeState extends State<GeneralLedgerHome> {
               height: height * .01,
             ),
             SizedBox(
-              height: height * .1,
+              height: height * .05,
               width: width * .9,
               // decoration: const BoxDecoration(color: Colors.red),
               child: AutoSizeText(
@@ -140,7 +140,8 @@ class _GeneralLedgerHomeState extends State<GeneralLedgerHome> {
                 ),
                 Button.button("Explore Ledgers", () {}, height, width * .8),
               ],
-            )
+            ),
+            SizedBox(width: 0.0, height: height * .03)
           ],
         ),
       )),

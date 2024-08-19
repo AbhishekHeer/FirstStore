@@ -35,24 +35,10 @@ class _LoginpageState extends State<Loginpage> {
               )),
             ),
             //username
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: width * .04, vertical: height * .02),
-              child: TextField(
-                controller: username,
-                decoration: const InputDecoration(
-                    label: Text('Username'), border: OutlineInputBorder()),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: width * .04, vertical: height * .0),
-              child: TextField(
-                controller: password,
-                decoration: const InputDecoration(
-                    label: Text('Password'), border: OutlineInputBorder()),
-              ),
-            ),
+            TextFeild.textfield(width, height, "User Name", username, false),
+            //password
+            TextFeild.textfield(width, height, "Password", password, false),
+
             SizedBox(width: 0.0, height: height * .05),
             Center(
               child: Button.button("Login", () {

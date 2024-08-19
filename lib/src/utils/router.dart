@@ -1,5 +1,7 @@
 import 'package:firststore/src/app.dart';
-import 'package:firststore/src/commons/view/loginpage.dart';
+import 'package:firststore/src/feature/Multi%20Ways/view/multi_way/entity_type.dart';
+import 'package:firststore/src/feature/Multi%20Ways/view/multi_way/transaction_details.dart';
+import 'package:firststore/src/feature/login/view/loginpage.dart';
 import 'package:firststore/src/commons/view/splashscreen.dart';
 import 'package:firststore/src/commons/view/signuppage.dart';
 import 'package:firststore/src/commons/view/signupsecond.dart';
@@ -10,6 +12,8 @@ import 'package:firststore/src/feature/Batch%20Payments/view/invoice_details.dar
 import 'package:firststore/src/feature/Batch%20Payments/view/business_entity_details.dart';
 import 'package:firststore/src/feature/Batch%20Payments/view/individual_entity_details.dart';
 import 'package:firststore/src/feature/Batch%20Payments/view/batch_transection_details.dart';
+import 'package:firststore/src/feature/Cash%20Ledger/view/widgets/customer_details_cash_ledger.dart';
+import 'package:firststore/src/feature/Cash%20Ledger/view/widgets/transaction_details_cash_ledger.dart';
 import 'package:firststore/src/feature/General%20Ledger/view/account_detail_ledger.dart';
 import 'package:firststore/src/feature/General%20Ledger/view/basic_info_ledger.dart';
 import 'package:firststore/src/feature/General%20Ledger/view/first_ledger.dart';
@@ -23,25 +27,24 @@ import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/interc
 import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_invoice.dart';
 import 'package:firststore/src/feature/Intercompany%20Reconciliation/view/intercompany_transaction_details.dart';
 import 'package:firststore/src/feature/Reconciliation/view/mt_ai.dart';
-import 'package:firststore/src/feature/Reconciliation/view/multi_way/account_balance.dart';
-import 'package:firststore/src/feature/Reconciliation/view/multi_way/entity_details.dart';
-import 'package:firststore/src/feature/Reconciliation/view/multi_way/entity_details_2.dart';
-import 'package:firststore/src/feature/Reconciliation/view/multi_way/entity_type.dart';
-import 'package:firststore/src/feature/Reconciliation/view/multi_way/invoice_details.dart';
-import 'package:firststore/src/feature/Reconciliation/view/multi_way/transaction_add.dart';
-import 'package:firststore/src/feature/Reconciliation/view/multi_way/transaction_details.dart';
 import 'package:firststore/src/feature/Reconciliation/view/reconciliation_main.dart';
 import 'package:firststore/src/feature/Reconciliation/view/user_case.dart';
 import 'package:firststore/src/feature/home/view/Home/homepage.dart';
 import 'package:firststore/src/feature/contact/view/contactus.dart';
 import 'package:firststore/src/feature/contact/view/talktous.dart';
 import 'package:firststore/src/feature/payments/view/paymentpage.dart';
+import 'package:firststore/src/feature/sales%20Legger/view/widgets/customer_info_sales.dart';
+import 'package:firststore/src/feature/sales%20Legger/view/widgets/sales_info_ledger.dart';
 import 'package:firststore/src/models/cardmodel.dart';
 import 'package:go_router/go_router.dart';
+import '../feature/Multi Ways/view/multi_way/account_balance.dart';
+import '../feature/Multi Ways/view/multi_way/entity_details.dart';
+import '../feature/Multi Ways/view/multi_way/entity_details_2.dart';
+import '../feature/Multi Ways/view/multi_way/invoice_details.dart';
+import '../feature/Multi Ways/view/multi_way/transaction_add.dart';
 
 abstract class Gorouter {
   static GoRouter router = GoRouter(
-    initialLocation: '/Ledgers_home',
     routes: [
       GoRoute(
         name: '/',
@@ -282,6 +285,33 @@ abstract class Gorouter {
           builder: (context, GoRouterState state) {
             return const TransactionDetailsLedger();
           }),
+      //sales ledger
+      GoRoute(
+          name: '/customer_info_sales',
+          path: '/customer_info_sales',
+          builder: (context, GoRouterState state) {
+            return const CustomerInfoSales();
+          }),
+      GoRoute(
+          name: '/sales_info_ledger',
+          path: '/sales_info_ledger',
+          builder: (context, GoRouterState state) {
+            return const SalesInfoLedger();
+          }),
+      //cash Ledger
+      GoRoute(
+          name: '/transaction_cash_ledger',
+          path: '/transaction_cash_ledger',
+          builder: (context, GoRouterState state) {
+            return const TransactionDetailsCashLedger();
+          }),
+      GoRoute(
+          name: '/customer_details_cash_ledger',
+          path: '/customer_details_cash_ledger',
+          builder: (context, GoRouterState state) {
+            return const CustomerDetailsCashLedger();
+          }),
     ],
+    initialLocation: '/',
   );
 }

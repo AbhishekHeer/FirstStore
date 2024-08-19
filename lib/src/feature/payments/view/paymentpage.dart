@@ -69,8 +69,8 @@ class _PaymentpageState extends State<Paymentpage> {
               width: width * .9,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(widget.cardmodel.imageUrl),
-                      fit: BoxFit.cover)),
+                      image: AssetImage(widget.cardmodel.imageUrl),
+                      fit: BoxFit.contain)),
             ),
             SizedBox(width: 0.0, height: height * .01),
             Padding(

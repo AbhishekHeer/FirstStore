@@ -82,7 +82,11 @@ class TextFeild {
           TextField(
             readOnly: readonly,
             controller: controller,
-            decoration: const InputDecoration(border: OutlineInputBorder()),
+            decoration: InputDecoration(
+                prefixIcon: readonly == true
+                    ? const Icon(CupertinoIcons.calendar)
+                    : null,
+                border: const OutlineInputBorder()),
           ),
         ],
       ),

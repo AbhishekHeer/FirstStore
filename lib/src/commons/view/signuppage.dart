@@ -35,121 +35,15 @@ class _SignupPageState extends State<SignupPage> {
           Column(
             children: <Widget>[
               //First name
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('First Name'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      controller: first_name,
-                      decoration:
-                          const InputDecoration(border: OutlineInputBorder()),
-                    ),
-                  ],
-                ),
-              ),
-              //Last name
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Last Name'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      controller: last_name,
-                      decoration:
-                          const InputDecoration(border: OutlineInputBorder()),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(
+                  width, height, "First Name", first_name, false), //Last name
+              TextFeild.textfield(width, height, "Last Name", last_name, false),
               //Email
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Email'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      controller: email,
-                      decoration:
-                          const InputDecoration(border: OutlineInputBorder()),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(width, height, "Email", email, false),
+
               //Contact Number
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Contact Number'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      controller: contact_number,
-                      decoration:
-                          const InputDecoration(border: OutlineInputBorder()),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(
+                  width, height, "Contact Number", contact_number, false),
             ],
           ),
           SizedBox(width: 0.0, height: height * .04),

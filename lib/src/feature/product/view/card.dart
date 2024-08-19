@@ -35,10 +35,10 @@ class ProductCard extends StatelessWidget {
               width: width * .43,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                image: NetworkImage(
+                image: AssetImage(
                   productimage,
                 ),
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               )),
             ),
             Container(
