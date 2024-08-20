@@ -1,6 +1,5 @@
-import 'package:firststore/src/res/strings.dart';
+import 'package:firststore/src/res/assets.dart';
 import 'package:firststore/src/utils/button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Talktous extends StatefulWidget {
@@ -22,43 +21,16 @@ class _TalktousState extends State<Talktous> {
         child: Column(
           children: <Widget>[
             SizedBox(width: 0.0, height: height * .01),
-            Center(
-              child: Container(
-                  height: height * .07,
-                  width: width,
-                  margin:
-                      EdgeInsets.only(left: width * .05, right: width * .05),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(height * .02),
-                      color: greencolor),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: width * .04),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              CupertinoIcons.left_chevron,
-                              color: Colors.white,
-                            ),
-                            SizedBox(width: width * .03, height: 0.0),
-                            Text(
-                              'Talk to Us',
-                              style: texttheme.titleMedium
-                                  ?.copyWith(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  )),
-            ),
+            Appbarhead.apphead(context, "Talk to Us", height, width, texttheme),
             SizedBox(width: 0, height: height * .06),
             Container(
               height: height * .47,
               width: width * .9,
-              decoration: const BoxDecoration(color: Colors.white),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(talk_to_us),
+                      filterQuality: FilterQuality.high),
+                  color: Colors.white),
             ),
             SizedBox(
               width: width * .6,

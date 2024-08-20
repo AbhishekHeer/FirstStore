@@ -11,6 +11,12 @@ class Contactus extends StatefulWidget {
   State<Contactus> createState() => _ContactusState();
 }
 
+TextEditingController first_name = TextEditingController();
+TextEditingController last_name = TextEditingController();
+TextEditingController email = TextEditingController();
+TextEditingController compony_name = TextEditingController();
+TextEditingController no_of_employee = TextEditingController();
+
 class _ContactusState extends State<Contactus> {
   @override
   Widget build(BuildContext context) {
@@ -24,43 +30,8 @@ class _ContactusState extends State<Contactus> {
           child: Column(
             children: <Widget>[
               SizedBox(width: 0.0, height: height * .01),
-              Center(
-                child: Container(
-                    height: height * .07,
-                    width: width,
-                    margin:
-                        EdgeInsets.only(left: width * .05, right: width * .05),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(height * .02),
-                        color: greencolor),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: width * .04),
-                          child: Row(
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  context.pop();
-                                },
-                                child: const Icon(
-                                  CupertinoIcons.left_chevron,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              SizedBox(width: width * .03, height: 0.0),
-                              Text(
-                                'Contact Us',
-                                style: texttheme.titleMedium
-                                    ?.copyWith(color: Colors.white),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
+              Appbarhead.apphead(
+                  context, "Contact Us", height, width, texttheme),
               SizedBox(width: 0.0, height: height * .04),
               Padding(
                 padding: EdgeInsets.only(left: width * .04),
@@ -73,157 +44,20 @@ class _ContactusState extends State<Contactus> {
                     )),
               ),
               //First name
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('First Name'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(height * .01),
-                      )),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(
+                  width, height, "First Name", first_name, false),
               //Last name
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Last Name'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(height * .01),
-                      )),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(
+                  width, height, "First Name", last_name, false),
               //Email
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Email'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(height * .01),
-                      )),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(width, height, "First Name", email, false),
               //Company Name
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('Company Name'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(height * .01),
-                      )),
-                    ),
-                  ],
-                ),
-              ),
+              TextFeild.textfield(
+                  width, height, "First Name", compony_name, false),
 
               //No. of Employees
-              Padding(
-                padding: EdgeInsets.only(
-                    left: width * .06, right: width * .06, top: height * .02),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: width * .01),
-                        child: const Row(
-                          children: [
-                            Text('No. of Employees'),
-                            Text(
-                              '*',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(height * .01),
-                      )),
-                    ),
-                  ],
-                ),
-              ),
-
+              TextFeild.textfield(
+                  width, height, "First Name", no_of_employee, false),
               SizedBox(width: 0.0, height: height * .04),
               Center(
                 child: Button.meetingbtn("Talk to Us", () {
