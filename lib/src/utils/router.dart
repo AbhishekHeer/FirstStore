@@ -1,6 +1,8 @@
 import 'package:firststore/src/app.dart';
 import 'package:firststore/src/feature/Multi%20Ways/view/multi_way/entity_type.dart';
 import 'package:firststore/src/feature/Multi%20Ways/view/multi_way/transaction_details.dart';
+import 'package:firststore/src/feature/Purchase%20Ledger/view/purchase_information.dart';
+import 'package:firststore/src/feature/Purchase%20Ledger/view/supplier_info.dart';
 import 'package:firststore/src/feature/login/view/loginpage.dart';
 import 'package:firststore/src/commons/view/splashscreen.dart';
 import 'package:firststore/src/commons/view/signuppage.dart';
@@ -311,7 +313,20 @@ abstract class Gorouter {
           builder: (context, GoRouterState state) {
             return const CustomerDetailsCashLedger();
           }),
+      //Purchase
+      GoRoute(
+          name: '/purchase_info',
+          path: '/purchare_info',
+          builder: (context, GoRouterState state) {
+            return const PurchaseInformation();
+          }),
+      GoRoute(
+          name: '/supplier_info',
+          path: '/supplier_info',
+          builder: (context, GoRouterState state) {
+            return const SupplierInfo();
+          }),
     ],
-    initialLocation: '/',
+    initialLocation: '/Ledgers_home',
   );
 }

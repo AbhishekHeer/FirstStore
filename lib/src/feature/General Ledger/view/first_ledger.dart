@@ -62,6 +62,9 @@ class _FirstLedgerState extends State<FirstLedger> {
                   } else if (ledgerTypeController.dropDownValue?.value ==
                       "Cash") {
                     context.pushNamed("/transaction_cash_ledger");
+                  } else if (ledgerTypeController.dropDownValue?.value ==
+                      "Purchase") {
+                    context.pushNamed('/purchase_info');
                   } else {
                     SnackbarService.showSnackbar(
                         context, "Please Select Ledger Type", Colors.red);
