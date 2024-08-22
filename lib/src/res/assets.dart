@@ -14,3 +14,4 @@ String mt_ai = "Assets/Images/MTAI_reco.png";
 String businessman = "Assets/Images/businessman.png";
 String company = "Assets/Images/company.png";
 String general_ledger = "Assets/Images/general_ledger.png";
+String subsidiary = "Assets/Images/subsidiary.png";

@@ -59,7 +59,7 @@ class _SalesInfoLedgerState extends State<SalesInfoLedger> {
         TextFeild.textfield(width, height, "Name", name, false),
         // Payment Type
         TextFeild.dropdowntextfield(
-            width, height, "Payment Type", payment_type, []),
+            width, height, "Payment Type", payment_type, [], true),
         //Date*
         TextFeild.textfield(width, height, "Date", date, true),
         //Amount*

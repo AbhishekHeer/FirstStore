@@ -58,10 +58,15 @@ class _IntercompanyInvoiceState extends State<IntercompanyInvoice> {
                 width, height, "Registration ID*", invoice_number, false),
             //Payment Type*
             TextFeild.dropdowntextfield(
-                width, height, "Payment Type", payment_type, [
-              const DropDownValueModel(name: "cash", value: "1"),
-              const DropDownValueModel(name: "online", value: "2"),
-            ]),
+                width,
+                height,
+                "Payment Type",
+                payment_type,
+                [
+                  const DropDownValueModel(name: "cash", value: "1"),
+                  const DropDownValueModel(name: "online", value: "2"),
+                ],
+                true),
             // Contact Number*
             TextFeild.textfield(width, height, "Date", date, true),
             //Amount*

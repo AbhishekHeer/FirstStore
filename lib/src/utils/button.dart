@@ -98,7 +98,8 @@ class TextFeild {
       height,
       String uppername,
       SingleValueDropDownController controller,
-      List<DropDownValueModel> items) {
+      List<DropDownValueModel> items,
+      bool star) {
     return Padding(
       padding: EdgeInsets.only(
           left: width * .06, right: width * .06, top: height * .02),
@@ -111,10 +112,12 @@ class TextFeild {
               child: Row(
                 children: [
                   Text(uppername),
-                  const Text(
-                    '*',
-                    style: TextStyle(color: Colors.red),
-                  ),
+                  star == true
+                      ? const Text(
+                          '*',
+                          style: TextStyle(color: Colors.red),
+                        )
+                      : Container(),
                 ],
               ),
             ),

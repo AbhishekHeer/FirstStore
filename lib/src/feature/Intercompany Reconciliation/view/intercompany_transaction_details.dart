@@ -59,7 +59,7 @@ class _InternationalTransactionDetailsState
         TextFeild.textfield(width, height, "Name", name, false),
         //Payment Type*
         TextFeild.dropdowntextfield(
-            width, height, "Payment Type", batch_type, []),
+            width, height, "Payment Type", batch_type, [], true),
 
         // Date
         TextFeild.textfield(width, height, "Date", date, true),

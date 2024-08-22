@@ -53,15 +53,29 @@ class _IntercompanyEntityTypeState extends State<IntercompanyEntityType> {
               ),
             ),
             //entity 1
-            TextFeild.dropdowntextfield(width, height, "Entity 1", entity1, [
-              const DropDownValueModel(name: "Individual", value: "Individual"),
-              const DropDownValueModel(name: "Business", value: "Business"),
-            ]),
+            TextFeild.dropdowntextfield(
+                width,
+                height,
+                "Entity 1",
+                entity1,
+                [
+                  const DropDownValueModel(
+                      name: "Individual", value: "Individual"),
+                  const DropDownValueModel(name: "Business", value: "Business"),
+                ],
+                true),
             SizedBox(width: 0.0, height: height * .1),
-            TextFeild.dropdowntextfield(width, height, "Entity 2", entity2, [
-              const DropDownValueModel(name: "Individual", value: "Individual"),
-              const DropDownValueModel(name: "Business", value: "Business"),
-            ]),
+            TextFeild.dropdowntextfield(
+                width,
+                height,
+                "Entity 2",
+                entity2,
+                [
+                  const DropDownValueModel(
+                      name: "Individual", value: "Individual"),
+                  const DropDownValueModel(name: "Business", value: "Business"),
+                ],
+                true),
             SizedBox(width: 0.0, height: height * .15),
             Button.button("Next", () {
               context.pushNamed("/intercompany_individual");

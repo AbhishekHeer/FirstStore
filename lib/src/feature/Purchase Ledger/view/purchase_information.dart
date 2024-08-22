@@ -2,45 +2,43 @@ import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../utils/button.dart';
+import '../../../utils/button.dart';
 
-class TransactionDetailsCashLedger extends StatefulWidget {
-  const TransactionDetailsCashLedger({super.key});
+class PurchaseInformation extends StatefulWidget {
+  const PurchaseInformation({super.key});
 
   @override
-  State<TransactionDetailsCashLedger> createState() =>
-      _TransactionDetailsCashLedgerState();
+  State<PurchaseInformation> createState() => _PurchaseInformationState();
 }
 
-TextEditingController transaction_id = TextEditingController();
-TextEditingController name = TextEditingController();
-TextEditingController amount = TextEditingController();
 SingleValueDropDownController payment_type = SingleValueDropDownController();
 TextEditingController date = TextEditingController();
+TextEditingController amount = TextEditingController();
 
-class _TransactionDetailsCashLedgerState
-    extends State<TransactionDetailsCashLedger> {
+class _PurchaseInformationState extends State<PurchaseInformation> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final texttheme = Theme.of(context).textTheme;
+    TextEditingController invoiceNumber = TextEditingController();
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(width: 0.0, height: height * .01),
-            Appbarhead.apphead(context, "Ledgers", height, width, texttheme),
+            Appbarhead.apphead(
+                context, "Reconciliation", height, width, texttheme),
             SizedBox(width: 0.0, height: height * .04),
             Padding(
               padding: EdgeInsets.only(left: width * .07),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Cash Ledger',
-                  style: texttheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w400, fontSize: height * .023),
+                  'Purchase Ledger',
+                  style: texttheme.titleLarge
+                      ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
@@ -49,35 +47,37 @@ class _TransactionDetailsCashLedgerState
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Step 1: Transaction Details',
+                  "Step 1: Purchase Information",
                   style: texttheme.labelLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
-            //Transaction ID*
+            //Invoice Number*
             TextFeild.textfield(
-                width, height, "Transaction ID", transaction_id, false),
-            //  Name*
-            TextFeild.textfield(width, height, "Name", name, false),
-            // Payment Type
+                width, height, "Invoice Number", invoiceNumber, false),
+            //payment type
             TextFeild.dropdowntextfield(
-                width, height, "Payment Type", payment_type, [], true),
-            //Date*
+                width,
+                height,
+                "Payment Type",
+                payment_type,
+                [const DropDownValueModel(name: "First", value: "value")],
+                true),
+            //date
             TextFeild.textfield(width, height, "Date", date, true),
-            //Amount*
+            //Amount
             TextFeild.textfield(width, height, "Amount", amount, false),
-            SizedBox(width: 0.0, height: height * .03),
-            //two button
+            SizedBox(height: height * .1),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
                 Button.button("Save", () {
-                  context.pushNamed("/customer_details_cash_ledger");
-                }, height, width * .8),
-                Button.button("Add Another", () {}, height, width * .8),
+                  context.pushNamed('/supplier_info');
+                }, height, width),
+                SizedBox(height: height * .03),
               ],
-            ),
+            )
           ],
         ),
       )),

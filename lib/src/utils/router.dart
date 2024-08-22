@@ -35,6 +35,10 @@ import 'package:firststore/src/feature/contact/view/talktous.dart';
 import 'package:firststore/src/feature/payments/view/paymentpage.dart';
 import 'package:firststore/src/feature/sales%20Legger/view/widgets/customer_info_sales.dart';
 import 'package:firststore/src/feature/sales%20Legger/view/widgets/sales_info_ledger.dart';
+import 'package:firststore/src/feature/subsidiary/view/Create%20Ledger%20Subsidiary/account_details_subsidiary.dart';
+import 'package:firststore/src/feature/subsidiary/view/Create%20Ledger%20Subsidiary/customer_info_subsidiary.dart';
+import 'package:firststore/src/feature/subsidiary/view/Create%20Ledger%20Subsidiary/vendor_info_subsidiary.dart';
+import 'package:firststore/src/feature/subsidiary/view/subsidiary_home.dart';
 import 'package:firststore/src/models/cardmodel.dart';
 import 'package:go_router/go_router.dart';
 import '../feature/Multi Ways/view/multi_way/account_balance.dart';
@@ -311,7 +315,46 @@ abstract class Gorouter {
           builder: (context, GoRouterState state) {
             return const CustomerDetailsCashLedger();
           }),
+      //Purchase
+      GoRoute(
+          name: '/purchase_info',
+          path: '/purchare_info',
+          builder: (context, GoRouterState state) {
+            return const PurchaseInformation();
+          }),
+      GoRoute(
+          name: '/supplier_info',
+          path: '/supplier_info',
+          builder: (context, GoRouterState state) {
+            return const SupplierInfo();
+          }),
+
+      //Subsidiary Ledgers
+      GoRoute(
+          name: '/subsidiary_home',
+          path: '/subsidiary_home',
+          builder: (context, GoRouterState state) {
+            return const SubsidiaryHome();
+          }),
+      GoRoute(
+          name: '/subsidiary_customer_info',
+          path: '/subsidiary_customer_info',
+          builder: (context, GoRouterState state) {
+            return const CustomerInfoSubsidiary();
+          }),
+      GoRoute(
+          name: '/vendor_info_subsidiary',
+          path: '/vendor_info_subsidiary',
+          builder: (context, GoRouterState state) {
+            return const VendorInfoSubsidiary();
+          }),
+      GoRoute(
+          name: '/account_details_subsidiary',
+          path: '/account_details_subsidiary',
+          builder: (context, GoRouterState state) {
+            return const AccountDetailsSubsidiary();
+          }),
     ],
-    initialLocation: '/',
+    initialLocation: '/first_ledger',
   );
 }

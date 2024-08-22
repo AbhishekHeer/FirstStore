@@ -60,8 +60,7 @@ class _CoutomerInfoSalesState extends State<CustomerInfoSales> {
           TextFeild.textfield(
               width, height, "Contact Number", customer_phone, false),
           //Email*
-          TextFeild.textfield(
-              width, height, "Customer ID", customer_email, false),
+          TextFeild.textfield(width, height, "Email", customer_email, false),
           //two button
           SizedBox(width: 0.0, height: height * .03),
           Row(
@@ -71,6 +70,9 @@ class _CoutomerInfoSalesState extends State<CustomerInfoSales> {
                 context.pushNamed('/sales_info_ledger');
               }, height, width * .8),
               Button.button("Add Another", () {}, height, width * .8),
+              SizedBox(
+                height: height * .03,
+              ),
             ],
           ),
         ]),

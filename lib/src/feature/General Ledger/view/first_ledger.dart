@@ -42,13 +42,19 @@ class _FirstLedgerState extends State<FirstLedger> {
             ),
             SizedBox(height: height * .03),
             TextFeild.dropdowntextfield(
-                width, height, "Select Ledger Type", ledgerTypeController, [
-              const DropDownValueModel(name: "General", value: "General"),
-              const DropDownValueModel(name: "Subsidiary", value: "Subsidiary"),
-              const DropDownValueModel(name: "Cash", value: "Cash"),
-              const DropDownValueModel(name: "Sales", value: "Sales"),
-              const DropDownValueModel(name: "Purchase", value: "Purchase"),
-            ]),
+                width,
+                height,
+                "Select Ledger Type",
+                ledgerTypeController,
+                [
+                  const DropDownValueModel(name: "General", value: "General"),
+                  const DropDownValueModel(
+                      name: "Subsidiary", value: "Subsidiary"),
+                  const DropDownValueModel(name: "Cash", value: "Cash"),
+                  const DropDownValueModel(name: "Sales", value: "Sales"),
+                  const DropDownValueModel(name: "Purchase", value: "Purchase"),
+                ],
+                true),
             SizedBox(height: height * .1),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -62,6 +68,15 @@ class _FirstLedgerState extends State<FirstLedger> {
                   } else if (ledgerTypeController.dropDownValue?.value ==
                       "Cash") {
                     context.pushNamed("/transaction_cash_ledger");
+<<<<<<< Updated upstream
+=======
+                  } else if (ledgerTypeController.dropDownValue?.value ==
+                      "Purchase") {
+                    context.pushNamed('/purchase_info');
+                  } else if (ledgerTypeController.dropDownValue?.value ==
+                      "Subsidiary") {
+                    context.pushNamed('/subsidiary_home');
+>>>>>>> Stashed changes
                   } else {
                     SnackbarService.showSnackbar(
                         context, "Please Select Ledger Type", Colors.red);
