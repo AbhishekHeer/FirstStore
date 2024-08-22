@@ -1,8 +1,7 @@
-import 'package:firststore/src/res/strings.dart';
 import 'package:firststore/src/utils/button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
+import '../../../../utils/card.dart';
 
 class AccountBalance extends StatefulWidget {
   const AccountBalance({super.key});
@@ -50,123 +49,18 @@ class _AccountBalanceState extends State<AccountBalance> {
               ),
             ),
             SizedBox(width: 0.0, height: height * .03),
-            //balance box
-            Container(
-                height: height * .14,
-                width: width * .9,
-                decoration: BoxDecoration(
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(height * .02)),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: height * .14,
-                      width: width * .45,
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: width * .04),
-                            child: Icon(
-                              CupertinoIcons.profile_circled,
-                              size: height * .04,
-                            ),
-                          ),
-                          SizedBox(width: width * .04, height: 0.0),
-                          Text(
-                            'Ashish',
-                            style: texttheme.bodyLarge
-                                ?.copyWith(fontSize: height * .022),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * .14,
-                      width: width * .4,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: height * .01),
-                            child: Text(
-                              '\$1,323.45',
-                              style: texttheme.headlineSmall?.copyWith(),
-                            ),
-                          ),
-                          SizedBox(width: 0.0, height: height * .005),
-                          Text(
-                            'A/C: XXXX9560',
-                            style: texttheme.bodySmall?.copyWith(),
-                          ),
-                          SizedBox(width: 0.0, height: height * .005),
-                          Text(
-                            'IFSC: XXX120',
-                            style: texttheme.bodySmall?.copyWith(),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )),
-            //second box
-            SizedBox(width: 0.0, height: height * .02),
-            Container(
-                height: height * .14,
-                width: width * .9,
-                decoration: BoxDecoration(
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(height * .02)),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: height * .14,
-                      width: width * .45,
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: width * .04),
-                            child: Icon(
-                              CupertinoIcons.profile_circled,
-                              size: height * .04,
-                            ),
-                          ),
-                          SizedBox(width: width * .04, height: 0.0),
-                          Text(
-                            'Ashish',
-                            style: texttheme.bodyLarge
-                                ?.copyWith(fontSize: height * .022),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * .14,
-                      width: width * .4,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: height * .01),
-                            child: Text(
-                              '\$1,323.45',
-                              style: texttheme.headlineSmall?.copyWith(),
-                            ),
-                          ),
-                          SizedBox(width: 0.0, height: height * .005),
-                          Text(
-                            'A/C: XXXX9560',
-                            style: texttheme.bodySmall?.copyWith(),
-                          ),
-                          SizedBox(width: 0.0, height: height * .005),
-                          Text(
-                            'IFSC: XXX120',
-                            style: texttheme.bodySmall?.copyWith(),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )),
+            ListView.builder(
+                shrinkWrap: true,
+                itemCount: 3,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: width * .04, vertical: height * .01),
+                    child: AccountCard.card(height, width, texttheme, "1323.45",
+                        "Ashish", "XXX120", "XXXX9560"),
+                  );
+                }),
           ],
         ),
       )),

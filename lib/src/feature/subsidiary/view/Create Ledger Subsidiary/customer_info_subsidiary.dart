@@ -25,7 +25,8 @@ class _CustomerInfoSubsidiaryState extends State<CustomerInfoSubsidiary> {
             child: SingleChildScrollView(
                 child: Column(children: [
       SizedBox(width: 0.0, height: height * .01),
-      Appbarhead.apphead(context, "Ledger", height, width, texttheme),
+      Appbarhead.apphead(
+          context, "Subsidiary Ledgers", height, width, texttheme),
       SizedBox(width: 0.0, height: height * .04),
       Padding(
         padding: EdgeInsets.only(left: width * .07),

@@ -1,18 +1,17 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:firststore/src/utils/button.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:firststore/src/utils/card.dart';
 import 'package:flutter/material.dart';
 
-import '../../../utils/card.dart';
+import '../../../../utils/button.dart';
 
-class BatchAccountBalance extends StatefulWidget {
-  const BatchAccountBalance({super.key});
+class AccountBalanceSubsidiary extends StatefulWidget {
+  const AccountBalanceSubsidiary({super.key});
 
   @override
-  State<BatchAccountBalance> createState() => _BatchAccountBalanceState();
+  State<AccountBalanceSubsidiary> createState() =>
+      _AccountBalanceSubsidiaryState();
 }
 
-class _BatchAccountBalanceState extends State<BatchAccountBalance> {
+class _AccountBalanceSubsidiaryState extends State<AccountBalanceSubsidiary> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -22,38 +21,26 @@ class _BatchAccountBalanceState extends State<BatchAccountBalance> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
+          children: [
             SizedBox(width: 0.0, height: height * .01),
             Appbarhead.apphead(
-                context, "Reconciliation", height, width, texttheme),
+                context, "Subsidiary Ledgers", height, width, texttheme),
             SizedBox(width: 0.0, height: height * .04),
             Padding(
               padding: EdgeInsets.only(left: width * .07),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Batch Payments',
+                  'Accounts',
                   style: texttheme.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
             SizedBox(width: 0.0, height: height * .04),
-            Padding(
-              padding: EdgeInsets.only(left: width * .07),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Account Balances',
-                  style: texttheme.labelLarge
-                      ?.copyWith(fontWeight: FontWeight.w400),
-                ),
-              ),
-            ),
-            SizedBox(width: 0.0, height: height * .03),
             ListView.builder(
                 shrinkWrap: true,
-                itemCount: 2,
+                itemCount: 4,
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Padding(
@@ -63,6 +50,9 @@ class _BatchAccountBalanceState extends State<BatchAccountBalance> {
                         "Ashish", "XXX120", "XXXX9560"),
                   );
                 }),
+            SizedBox(
+              height: height * .03,
+            ),
           ],
         ),
       )),

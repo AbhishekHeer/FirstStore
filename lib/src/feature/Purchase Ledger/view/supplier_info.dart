@@ -1,27 +1,25 @@
-import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../utils/button.dart';
 
-class PurchaseInformation extends StatefulWidget {
-  const PurchaseInformation({super.key});
+class SupplierInfo extends StatefulWidget {
+  const SupplierInfo({super.key});
 
   @override
-  State<PurchaseInformation> createState() => _PurchaseInformationState();
+  State<SupplierInfo> createState() => _SupplierInfoState();
 }
 
-SingleValueDropDownController payment_type = SingleValueDropDownController();
-TextEditingController date = TextEditingController();
-TextEditingController amount = TextEditingController();
-
-class _PurchaseInformationState extends State<PurchaseInformation> {
+class _SupplierInfoState extends State<SupplierInfo> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final texttheme = Theme.of(context).textTheme;
-    TextEditingController invoiceNumber = TextEditingController();
+    final supplierID = TextEditingController();
+    final name = TextEditingController();
+    final contactNumber = TextEditingController();
+    final email = TextEditingController();
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -46,34 +44,29 @@ class _PurchaseInformationState extends State<PurchaseInformation> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  "Step 1: Purchase Information",
+                  'Step 2: Supplier Information',
                   style: texttheme.labelLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
-            //Invoice Number*
+            // Supplier ID
             TextFeild.textfield(
-                width, height, "Invoice Number", invoiceNumber, false),
-            //payment type
-            TextFeild.dropdowntextfield(
-                width,
-                height,
-                "Payment Type",
-                payment_type,
-                [const DropDownValueModel(name: "First", value: "value")],
-                true),
-            //date
-            TextFeild.textfield(width, height, "Date", date, true),
-            //Amount
-            TextFeild.textfield(width, height, "Amount", amount, false),
-            SizedBox(height: height * .1),
+                width, height, "Supplier ID", supplierID, false),
+            // Name
+            TextFeild.textfield(width, height, "Name", name, false),
+            // contact number
+            TextFeild.textfield(
+                width, height, "Contact Number", contactNumber, false),
+            // email
+            TextFeild.textfield(width, height, "Email", email, false),
+            SizedBox(
+              height: height * .06,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Button.button("Save", () {
-                  context.pushNamed('/supplier_info');
-                }, height, width),
+                Button.button("Save", () {}, height, width),
                 SizedBox(height: height * .03),
               ],
             )

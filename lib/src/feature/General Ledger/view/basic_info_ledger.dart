@@ -28,7 +28,7 @@ class _BasicInfoLedgerState extends State<BasicInfoLedger> {
         child: Column(
           children: [
             SizedBox(width: 0.0, height: height * .01),
-            Appbarhead.apphead(context, "Ledger", height, width, texttheme),
+            Appbarhead.apphead(context, "Ledgers", height, width, texttheme),
             SizedBox(width: 0.0, height: height * .04),
             Padding(
               padding: EdgeInsets.only(left: width * .07),

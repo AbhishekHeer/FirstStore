@@ -3,23 +3,23 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../utils/button.dart';
 
-class AccountDetailsSubsidiary extends StatefulWidget {
-  const AccountDetailsSubsidiary({super.key});
+class SalesInfoSubsidiary extends StatefulWidget {
+  const SalesInfoSubsidiary({super.key});
 
   @override
-  State<AccountDetailsSubsidiary> createState() =>
-      _AccountDetailsSubsidiaryState();
+  State<SalesInfoSubsidiary> createState() => _SalesInfoSubsidiaryState();
 }
 
-class _AccountDetailsSubsidiaryState extends State<AccountDetailsSubsidiary> {
+class _SalesInfoSubsidiaryState extends State<SalesInfoSubsidiary> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final texttheme = Theme.of(context).textTheme;
-    final taxIdentificationNumber = TextEditingController();
-    final accountNumber = TextEditingController();
-    final accountHolderName = TextEditingController();
+    TextEditingController transactionid = TextEditingController();
+    TextEditingController transactionname = TextEditingController();
+    TextEditingController description = TextEditingController();
+    TextEditingController date = TextEditingController();
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -45,28 +45,32 @@ class _AccountDetailsSubsidiaryState extends State<AccountDetailsSubsidiary> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Step 3: Account Details',
+                  'Step 4: Sale Information',
                   style: texttheme.labelLarge
                       ?.copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
             ),
-            // Tax Identification Number*
-            TextFeild.textfield(width, height, "Tax Identification Number",
-                taxIdentificationNumber, false),
-            // Account number
+            // Transaction ID
             TextFeild.textfield(
-                width, height, "Account Number", accountNumber, false),
-            // Account Holder Name
+                width, height, "Transaction ID", transactionid, false),
+            //Transaction Name
             TextFeild.textfield(
-                width, height, "Account Number", accountHolderName, false),
+                width, height, "Transaction Name", transactionname, false),
+            // description
+            TextFeild.textfield(
+                width, height, "Description", description, false),
+            //date
+            TextFeild.textfield(width, height, "Date Of Inovice", date, true),
+            //Amount
+            TextFeild.textfield(width, height, "Amount", date, false),
             //two button
             SizedBox(width: 0.0, height: height * .06),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Button.button("Save", () {
-                  context.pushNamed("/sales_info_subsidiary");
+                  context.pushNamed("/account_balance_subsidiary");
                 }, height, width * .8),
                 Button.button("Add Another", () {}, height, width * .8),
                 SizedBox(

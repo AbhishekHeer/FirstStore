@@ -27,7 +27,7 @@ class _FirstLedgerState extends State<FirstLedger> {
         child: Column(
           children: [
             SizedBox(width: 0.0, height: height * .01),
-            Appbarhead.apphead(context, "Ledger", height, width, texttheme),
+            Appbarhead.apphead(context, "Ledgers", height, width, texttheme),
             SizedBox(width: 0.0, height: height * .04),
             Padding(
               padding: EdgeInsets.only(left: width * .07),
@@ -68,15 +68,12 @@ class _FirstLedgerState extends State<FirstLedger> {
                   } else if (ledgerTypeController.dropDownValue?.value ==
                       "Cash") {
                     context.pushNamed("/transaction_cash_ledger");
-<<<<<<< Updated upstream
-=======
                   } else if (ledgerTypeController.dropDownValue?.value ==
                       "Purchase") {
                     context.pushNamed('/purchase_info');
                   } else if (ledgerTypeController.dropDownValue?.value ==
                       "Subsidiary") {
                     context.pushNamed('/subsidiary_home');
->>>>>>> Stashed changes
                   } else {
                     SnackbarService.showSnackbar(
                         context, "Please Select Ledger Type", Colors.red);

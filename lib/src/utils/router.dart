@@ -3,8 +3,8 @@ import 'package:firststore/src/feature/Multi%20Ways/view/multi_way/entity_type.d
 import 'package:firststore/src/feature/Multi%20Ways/view/multi_way/transaction_details.dart';
 import 'package:firststore/src/feature/login/view/loginpage.dart';
 import 'package:firststore/src/commons/view/splashscreen.dart';
-import 'package:firststore/src/commons/view/signuppage.dart';
-import 'package:firststore/src/commons/view/signupsecond.dart';
+import 'package:firststore/src/feature/SignIn/view/signuppage.dart';
+import 'package:firststore/src/feature/SignIn/view/signupsecond.dart';
 import 'package:firststore/src/feature/Batch%20Payments/view/batch_account_balance.dart';
 import 'package:firststore/src/feature/Batch%20Payments/view/batch_add_transaction.dart';
 import 'package:firststore/src/feature/Batch%20Payments/view/batch_details.dart';
@@ -35,8 +35,10 @@ import 'package:firststore/src/feature/contact/view/talktous.dart';
 import 'package:firststore/src/feature/payments/view/paymentpage.dart';
 import 'package:firststore/src/feature/sales%20Legger/view/widgets/customer_info_sales.dart';
 import 'package:firststore/src/feature/sales%20Legger/view/widgets/sales_info_ledger.dart';
+import 'package:firststore/src/feature/subsidiary/view/Create%20Ledger%20Subsidiary/account_balance_subsidiary.dart';
 import 'package:firststore/src/feature/subsidiary/view/Create%20Ledger%20Subsidiary/account_details_subsidiary.dart';
 import 'package:firststore/src/feature/subsidiary/view/Create%20Ledger%20Subsidiary/customer_info_subsidiary.dart';
+import 'package:firststore/src/feature/subsidiary/view/Create%20Ledger%20Subsidiary/sales_info_subsidiary.dart';
 import 'package:firststore/src/feature/subsidiary/view/Create%20Ledger%20Subsidiary/vendor_info_subsidiary.dart';
 import 'package:firststore/src/feature/subsidiary/view/subsidiary_home.dart';
 import 'package:firststore/src/models/cardmodel.dart';
@@ -46,6 +48,8 @@ import '../feature/Multi Ways/view/multi_way/entity_details.dart';
 import '../feature/Multi Ways/view/multi_way/entity_details_2.dart';
 import '../feature/Multi Ways/view/multi_way/invoice_details.dart';
 import '../feature/Multi Ways/view/multi_way/transaction_add.dart';
+import '../feature/Purchase Ledger/view/purchase_information.dart';
+import '../feature/Purchase Ledger/view/supplier_info.dart';
 
 abstract class Gorouter {
   static GoRouter router = GoRouter(
@@ -354,7 +358,19 @@ abstract class Gorouter {
           builder: (context, GoRouterState state) {
             return const AccountDetailsSubsidiary();
           }),
+      GoRoute(
+          name: '/sales_info_subsidiary',
+          path: '/sales_info_subsidiary',
+          builder: (context, GoRouterState state) {
+            return const SalesInfoSubsidiary();
+          }),
+      GoRoute(
+          name: '/account_balance_subsidiary',
+          path: '/account_balance_subsidiary',
+          builder: (context, GoRouterState state) {
+            return const AccountBalanceSubsidiary();
+          }),
     ],
-    initialLocation: '/first_ledger',
+    initialLocation: '/',
   );
 }
