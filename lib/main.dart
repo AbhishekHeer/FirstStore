@@ -6,6 +6,8 @@ import 'package:firststore/src/utils/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'src/commons/providers/date picker/date_picker_provider.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => BatchDatapicker()),
         ChangeNotifierProvider(create: (_) => NavigateNotifier()),
         ChangeNotifierProvider(create: (_) => EntityTypeController()),
+        ChangeNotifierProvider(create: (_) => DatePickerProvider()),
       ],
       child: MaterialApp.router(
         title: 'FirstStore',

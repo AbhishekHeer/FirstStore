@@ -53,14 +53,14 @@ class _EntityDetailsState extends State<EntityDetails> {
             ),
             //Individual ID*
             TextFeild.textfield(
-                width, height, "Individual ID", transaction_id, false),
+                context, width, height, "Individual ID", transaction_id, false),
             //Name
-            TextFeild.textfield(width, height, "Name*", name, false),
+            TextFeild.textfield(context, width, height, "Name*", name, false),
             //Contact Number*
-            TextFeild.textfield(
-                width, height, "Contact Number", contact_number, false),
+            TextFeild.textfield(context, width, height, "Contact Number",
+                contact_number, false),
             //Email
-            TextFeild.textfield(width, height, "Amount", email, false),
+            TextFeild.textfield(context, width, height, "Amount", email, false),
             //two button
             SizedBox(width: 0.0, height: height * .03),
             Row(

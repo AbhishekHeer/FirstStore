@@ -54,18 +54,20 @@ class _BasicInfoLedgerState extends State<BasicInfoLedger> {
             ),
 
             //First Name
-            TextFeild.textfield(width, height, "First Name", first_name, false),
-            //Last Name
-            TextFeild.textfield(width, height, "Last Name", last_name, false),
-            //Contact Number
             TextFeild.textfield(
-                width, height, "Contact Number", contact_number, false),
+                context, width, height, "First Name", first_name, false),
+            //Last Name
+            TextFeild.textfield(
+                context, width, height, "Last Name", last_name, false),
+            //Contact Number
+            TextFeild.textfield(context, width, height, "Contact Number",
+                contact_number, false),
 
             // Email
-            TextFeild.textfield(width, height, "Email", email, true),
+            TextFeild.textfield(context, width, height, "Email", email, true),
             //Company Name
             TextFeild.textfield(
-                width, height, "Company Name", company_name, false),
+                context, width, height, "Company Name", company_name, false),
 
             //two button
             SizedBox(width: 0.0, height: height * .03),

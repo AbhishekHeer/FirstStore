@@ -1,11 +1,6 @@
-import 'package:firststore/src/feature/Reconciliation/controller/controller.dart';
-import 'package:firststore/src/feature/Reconciliation/repository/repository.dart';
-import 'package:firststore/src/res/strings.dart';
 import 'package:firststore/src/utils/button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 class TransactionDetails extends StatefulWidget {
   const TransactionDetails({super.key});
@@ -15,6 +10,9 @@ class TransactionDetails extends StatefulWidget {
 }
 
 TextEditingController date = TextEditingController();
+TextEditingController transactionid = TextEditingController();
+TextEditingController transactiontype = TextEditingController();
+TextEditingController amount = TextEditingController();
 
 class _MultiWayReconciliationState extends State<TransactionDetails> {
   @override
@@ -28,43 +26,8 @@ class _MultiWayReconciliationState extends State<TransactionDetails> {
         child: Column(
           children: <Widget>[
             SizedBox(width: 0.0, height: height * .01),
-            Center(
-              child: Container(
-                  height: height * .07,
-                  width: width,
-                  margin:
-                      EdgeInsets.only(left: width * .05, right: width * .05),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(height * .02),
-                      color: greencolor),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: width * .04),
-                        child: Row(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                context.pop();
-                              },
-                              child: const Icon(
-                                CupertinoIcons.left_chevron,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(width: width * .03, height: 0.0),
-                            Text(
-                              'Reconciliation',
-                              style: texttheme.titleMedium
-                                  ?.copyWith(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  )),
-            ),
+            Appbarhead.apphead(
+                context, "Reconciliation", height, width, texttheme),
             SizedBox(width: 0.0, height: height * .04),
             Padding(
               padding: EdgeInsets.only(left: width * .07),
@@ -89,154 +52,21 @@ class _MultiWayReconciliationState extends State<TransactionDetails> {
               ),
             ),
             // Transaction ID*
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Transaction ID'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            TextFeild.textfield(
+                context, width, height, "Transaction ID", transactionid, false),
             //Transaction Name
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Transaction Name'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            TextFeild.textfield(context, width, height, "Transaction Name",
+                transactiontype, false),
             //Transaction Type*
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Transaction Type'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
-            // Date
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Date'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Consumer<DateProvider>(builder: (context, ref, child) {
-                    return TextField(
-                      controller: date,
-                      onTap: () {
-                        Repository.selectDate(context).then(((value) {
-                          final String datereal =
-                              "${ref.selectedDate.day}-${ref.selectedDate.month}-${ref.selectedDate.year}";
-                          date.text = datereal;
-                        }));
-                      },
-                      readOnly: true,
-                      decoration: const InputDecoration(
-                          prefixIcon: Icon(CupertinoIcons.calendar),
-                          border: OutlineInputBorder()),
-                    );
-                  })
-                ],
-              ),
-            ),
-            //Amount
-            Padding(
-              padding: EdgeInsets.only(
-                  left: width * .06, right: width * .06, top: height * .02),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: width * .01),
-                      child: const Row(
-                        children: [
-                          Text('Amount'),
-                          Text(
-                            '*',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
-                  ),
-                ],
-              ),
-            ),
+            TextFeild.textfield(context, width, height, "Transaction Name",
+                transactiontype, false),
 
+            // Date
+            TextFeild.textfield(context, width, height, "Date", date, true),
+
+            //Amount
+            TextFeild.textfield(
+                context, width, height, "Amountwh", amount, false),
             //two button
             SizedBox(width: 0.0, height: height * .03),
             Row(

@@ -53,15 +53,18 @@ class _BatchDetailsState extends State<BatchDetails> {
               ),
             ),
             // batch ID*
-            TextFeild.textfield(width, height, "Batch ID", batch_id, false),
+            TextFeild.textfield(
+                context, width, height, "Batch ID", batch_id, false),
             //Name
-            TextFeild.textfield(width, height, "Name", name, false),
+            TextFeild.textfield(context, width, height, "Name", name, false),
             //Batch Type*
-            TextFeild.textfield(width, height, "Batch Type", batch_type, false),
+            TextFeild.textfield(
+                context, width, height, "Batch Type", batch_type, false),
             // Date
-            TextFeild.textfield(width, height, "Date", amount, true),
+            TextFeild.textfield(context, width, height, "Date", date, true),
             //Amount
-            TextFeild.textfield(width, height, "Amount", amount, false),
+            TextFeild.textfield(
+                context, width, height, "Amount", amount, false),
             //two button
             SizedBox(width: 0.0, height: height * .03),
             Row(

@@ -35,15 +35,17 @@ class _SignupPageState extends State<SignupPage> {
           Column(
             children: <Widget>[
               //First name
+              TextFeild.textfield(context, width, height, "First Name",
+                  first_name, false), //Last name
               TextFeild.textfield(
-                  width, height, "First Name", first_name, false), //Last name
-              TextFeild.textfield(width, height, "Last Name", last_name, false),
+                  context, width, height, "Last Name", last_name, false),
               //Email
-              TextFeild.textfield(width, height, "Email", email, false),
+              TextFeild.textfield(
+                  context, width, height, "Email", email, false),
 
               //Contact Number
-              TextFeild.textfield(
-                  width, height, "Contact Number", contact_number, false),
+              TextFeild.textfield(context, width, height, "Contact Number",
+                  contact_number, false),
             ],
           ),
           SizedBox(width: 0.0, height: height * .04),

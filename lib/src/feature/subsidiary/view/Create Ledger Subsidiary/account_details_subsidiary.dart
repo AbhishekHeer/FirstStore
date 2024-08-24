@@ -52,14 +52,14 @@ class _AccountDetailsSubsidiaryState extends State<AccountDetailsSubsidiary> {
               ),
             ),
             // Tax Identification Number*
-            TextFeild.textfield(width, height, "Tax Identification Number",
-                taxIdentificationNumber, false),
+            TextFeild.textfield(context, width, height,
+                "Tax Identification Number", taxIdentificationNumber, false),
             // Account number
             TextFeild.textfield(
-                width, height, "Account Number", accountNumber, false),
+                context, width, height, "Account Number", accountNumber, false),
             // Account Holder Name
-            TextFeild.textfield(
-                width, height, "Account Number", accountHolderName, false),
+            TextFeild.textfield(context, width, height, "Account Number",
+                accountHolderName, false),
             //two button
             SizedBox(width: 0.0, height: height * .06),
             Row(

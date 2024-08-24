@@ -54,7 +54,7 @@ class _PurchaseInformationState extends State<PurchaseInformation> {
             ),
             //Invoice Number*
             TextFeild.textfield(
-                width, height, "Invoice Number", invoiceNumber, false),
+                context, width, height, "Invoice Number", invoiceNumber, false),
             //payment type
             TextFeild.dropdowntextfield(
                 width,
@@ -64,9 +64,10 @@ class _PurchaseInformationState extends State<PurchaseInformation> {
                 [const DropDownValueModel(name: "First", value: "value")],
                 true),
             //date
-            TextFeild.textfield(width, height, "Date", date, true),
+            TextFeild.textfield(context, width, height, "Date", date, true),
             //Amount
-            TextFeild.textfield(width, height, "Amount", amount, false),
+            TextFeild.textfield(
+                context, width, height, "Amount", amount, false),
             SizedBox(height: height * .1),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -49,14 +49,16 @@ class _CustomerInfoSubsidiaryState extends State<CustomerInfoSubsidiary> {
         ),
       ),
       // Customer ID*
-      TextFeild.textfield(width, height, "Customer ID", customer_id, false),
+      TextFeild.textfield(
+          context, width, height, "Customer ID", customer_id, false),
       // Customer Name*
-      TextFeild.textfield(width, height, "Customer Name", customer_name, false),
+      TextFeild.textfield(
+          context, width, height, "Customer Name", customer_name, false),
       // Contact Number ID*
       TextFeild.textfield(
-          width, height, "Contact Number", customer_name, false),
+          context, width, height, "Contact Number", customer_name, false),
       //Email*
-      TextFeild.textfield(width, height, "Email", email, false),
+      TextFeild.textfield(context, width, height, "Email", email, false),
       //two button
       SizedBox(width: 0.0, height: height * .03),
       Row(

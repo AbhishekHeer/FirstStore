@@ -51,14 +51,14 @@ class _SupplierInfoState extends State<SupplierInfo> {
             ),
             // Supplier ID
             TextFeild.textfield(
-                width, height, "Supplier ID", supplierID, false),
+                context, width, height, "Supplier ID", supplierID, false),
             // Name
-            TextFeild.textfield(width, height, "Name", name, false),
+            TextFeild.textfield(context, width, height, "Name", name, false),
             // contact number
             TextFeild.textfield(
-                width, height, "Contact Number", contactNumber, false),
+                context, width, height, "Contact Number", contactNumber, false),
             // email
-            TextFeild.textfield(width, height, "Email", email, false),
+            TextFeild.textfield(context, width, height, "Email", email, false),
             SizedBox(
               height: height * .06,
             ),

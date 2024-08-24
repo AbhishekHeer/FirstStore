@@ -56,16 +56,17 @@ class _VendorInfoSubsidiaryState extends State<VendorInfoSubsidiary> {
               ),
             ),
             // Vendor ID*
-            TextFeild.textfield(width, height, "Vendor ID", vendor_id, false),
+            TextFeild.textfield(
+                context, width, height, "Vendor ID", vendor_id, false),
             // Vendor Name*
             TextFeild.textfield(
-                width, height, "Vendor Name", vendor_name, false),
+                context, width, height, "Vendor Name", vendor_name, false),
             //Vendor Contact Number*
-            TextFeild.textfield(width, height, "Vendor Contact Number",
+            TextFeild.textfield(context, width, height, "Vendor Contact Number",
                 vendor_contact_number, false),
             // Vendor Email*
             TextFeild.textfield(
-                width, height, "Vendor Email", vendor_email, false),
+                context, width, height, "Vendor Email", vendor_email, false),
             //Tax Information (if applicable)
             TextFeild.dropdowntextfield(width, height,
                 "Tax Information (if applicable)", tax_info, [], false),

@@ -40,7 +40,7 @@ class _MainPageState extends State<Splashscreen> {
               children: [
                 InkWell(
                   onTap: () {
-                    context.goNamed('/login');
+                    context.pushReplacementNamed('/login');
                   },
                   child: const Text(
                     'Login',
@@ -57,7 +57,7 @@ class _MainPageState extends State<Splashscreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    context.goNamed('/signup');
+                    context.pushReplacementNamed('/signup');
                   },
                   child: const Text(
                     'Sign Up',

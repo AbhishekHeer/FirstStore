@@ -35,9 +35,11 @@ class _LoginpageState extends State<Loginpage> {
               )),
             ),
             //username
-            TextFeild.textfield(width, height, "User Name", username, false),
+            TextFeild.textfield(
+                context, width, height, "User Name", username, false),
             //password
-            TextFeild.textfield(width, height, "Password", password, false),
+            TextFeild.textfield(
+                context, width, height, "Password", password, false),
 
             SizedBox(width: 0.0, height: height * .05),
             Center(

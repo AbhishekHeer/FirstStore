@@ -1,4 +1,5 @@
 import 'package:firststore/src/feature/product/view/allproduct.dart';
+import 'package:firststore/src/res/assets.dart';
 import 'package:firststore/src/res/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -63,17 +64,17 @@ class _HomepageState extends State<Homepage> {
               Center(
                 child: Container(
                   margin: EdgeInsets.only(top: height * .02),
-                  height: height * .14,
+                  height: height * .17,
                   width: width * .9,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(height * .025),
                       color: Colors.black,
-                      image: const DecorationImage(
-                          image: NetworkImage(
-                            "https://picsum.photos/200/300",
-                          ),
-                          fit: BoxFit.cover,
-                          opacity: 0.3)),
+                      image: DecorationImage(
+                        image: AssetImage(
+                          home,
+                        ),
+                        fit: BoxFit.cover,
+                      )),
                   child: Column(
                     children: <Widget>[
                       Stack(
@@ -96,7 +97,7 @@ class _HomepageState extends State<Homepage> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(
-                            top: height * .02, left: height * .02),
+                            top: height * .05, left: height * .02),
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: Text(

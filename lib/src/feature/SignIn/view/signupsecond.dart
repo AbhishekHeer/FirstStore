@@ -36,12 +36,14 @@ class _SignupsecondState extends State<Signupsecond> {
             ),
             SizedBox(width: 0.0, height: height * .03),
             //username
-            TextFeild.textfield(width, height, "User Name", user_name, false),
-            //password
-            TextFeild.textfield(width, height, "Password", password, false),
-            //comfirm password
             TextFeild.textfield(
-                width, height, "Comfirm Password", comfirm_password, false),
+                context, width, height, "User Name", user_name, false),
+            //password
+            TextFeild.textfield(
+                context, width, height, "Password", password, false),
+            //comfirm password
+            TextFeild.textfield(context, width, height, "Comfirm Password",
+                comfirm_password, false),
 
             Padding(
               padding: EdgeInsets.only(top: height * .24, bottom: height * .03),

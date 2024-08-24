@@ -52,16 +52,17 @@ class _BatchPaymentState extends State<Batch_Invoice_Details> {
               ),
             ),
             //Invoice Number*
-            TextFeild.textfield(
-                width, height, "Invoice Number", invoice_number, false),
+            TextFeild.textfield(context, width, height, "Invoice Number",
+                invoice_number, false),
             //Invoice Number*
             TextFeild.textfield(
-                width, height, "Payment Type", payment_type, false),
+                context, width, height, "Payment Type", payment_type, false),
             // date
-            TextFeild.textfield(width, height, "Date", date, false),
+            TextFeild.textfield(context, width, height, "Date", date, false),
 
             // amount
-            TextFeild.textfield(width, height, "Amount", amount, false),
+            TextFeild.textfield(
+                context, width, height, "Amount", amount, false),
             SizedBox(width: 0.0, height: height * .03),
             //button
             Button.button("Submit", () {

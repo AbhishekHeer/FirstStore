@@ -54,18 +54,19 @@ class _BusinessEntityDetailsState extends State<BusinessEntityDetails> {
               ),
             ),
             //Registration ID**
-            TextFeild.textfield(
-                width, height, "Registration ID", registration_id, false),
+            TextFeild.textfield(context, width, height, "Registration ID",
+                registration_id, false),
             //Company Name*
             TextFeild.textfield(
-                width, height, "Company Name", company_name, false),
+                context, width, height, "Company Name", company_name, false),
             //Contact Number*
-            TextFeild.textfield(width, height, "Contact Number", email, false),
-            //Email
-            TextFeild.textfield(width, height, "Email", email, false),
-            //GST Registration No.
             TextFeild.textfield(
-                width, height, "GST Registration No.", gst_number, false),
+                context, width, height, "Contact Number", email, false),
+            //Email
+            TextFeild.textfield(context, width, height, "Email", email, false),
+            //GST Registration No.
+            TextFeild.textfield(context, width, height, "GST Registration No.",
+                gst_number, false),
             //two button
             SizedBox(width: 0.0, height: height * .09),
             Row(

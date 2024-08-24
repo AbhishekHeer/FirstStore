@@ -15,3 +15,5 @@ String businessman = "Assets/Images/businessman.png";
 String company = "Assets/Images/company.png";
 String general_ledger = "Assets/Images/general_ledger.png";
 String subsidiary = "Assets/Images/subsidiary.png";
+String home = "Assets/Images/home.png";
+String drawer = "Assets/Images/drawer.png";

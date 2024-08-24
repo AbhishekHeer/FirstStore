@@ -53,17 +53,18 @@ class _SalesInfoSubsidiaryState extends State<SalesInfoSubsidiary> {
             ),
             // Transaction ID
             TextFeild.textfield(
-                width, height, "Transaction ID", transactionid, false),
+                context, width, height, "Transaction ID", transactionid, false),
             //Transaction Name
-            TextFeild.textfield(
-                width, height, "Transaction Name", transactionname, false),
+            TextFeild.textfield(context, width, height, "Transaction Name",
+                transactionname, false),
             // description
             TextFeild.textfield(
-                width, height, "Description", description, false),
+                context, width, height, "Description", description, false),
             //date
-            TextFeild.textfield(width, height, "Date Of Inovice", date, true),
+            TextFeild.textfield(
+                context, width, height, "Date Of Inovice", date, true),
             //Amount
-            TextFeild.textfield(width, height, "Amount", date, false),
+            TextFeild.textfield(context, width, height, "Amount", date, false),
             //two button
             SizedBox(width: 0.0, height: height * .06),
             Row(

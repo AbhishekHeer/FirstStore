@@ -3,6 +3,9 @@ import 'package:firststore/src/res/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+
+import '../commons/providers/date picker/date_picker_provider.dart';
 
 class Button {
   static Widget button(
@@ -57,8 +60,9 @@ class Button {
 }
 
 class TextFeild {
-  static Widget textfield(width, height, String uppername,
+  static Widget textfield(BuildContext context, width, height, String uppername,
       TextEditingController controller, bool readonly) {
+    final datePickerProvider = Provider.of<DatePickerProvider>(context);
     return Padding(
       padding: EdgeInsets.only(
           left: width * .06, right: width * .06, top: height * .02),
@@ -79,15 +83,34 @@ class TextFeild {
               ),
             ),
           ),
-          TextField(
-            readOnly: readonly,
-            controller: controller,
-            decoration: InputDecoration(
-                prefixIcon: readonly == true
-                    ? const Icon(CupertinoIcons.calendar)
-                    : null,
-                border: const OutlineInputBorder()),
-          ),
+          Consumer<DatePickerProvider>(builder: (context, ref, child) {
+            return TextField(
+              readOnly: readonly,
+              onTap: () async {
+                if (readonly == true) {
+                  final DateTime? pickedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2100),
+                  );
+
+                  if (pickedDate != null) {
+                    datePickerProvider.setSelectedDate(pickedDate);
+                    String date =
+                        "${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
+                    controller.text = date;
+                  }
+                }
+              },
+              controller: controller,
+              decoration: InputDecoration(
+                  prefixIcon: readonly == true
+                      ? const Icon(CupertinoIcons.calendar)
+                      : null,
+                  border: const OutlineInputBorder()),
+            );
+          })
         ],
       ),
     );

@@ -53,19 +53,19 @@ class _InvoiceDetailsState extends State<InvoiceDetails> {
                 ),
               ),
               // TInvoice Number*
-              TextFeild.textfield(
-                  width, height, "Invoice Number", invoice_number, false),
+              TextFeild.textfield(context, width, height, "Invoice Number",
+                  invoice_number, false),
               // Transaction ID*
-              TextFeild.textfield(
-                  width, height, "Transaction ID", transaction_id, false),
+              TextFeild.textfield(context, width, height, "Transaction ID",
+                  transaction_id, false),
               //Transaction Type*
-              TextFeild.textfield(
-                  width, height, "Transaction Type", transaction_type, false),
+              TextFeild.textfield(context, width, height, "Transaction Type",
+                  transaction_type, false),
               // Date*
-              TextFeild.textfield(
-                  width, height, "Transaction Type", transaction_type, true),
+              TextFeild.textfield(context, width, height, "Date", date, true),
               //Amount
-              TextFeild.textfield(width, height, "Amount", amount, true),
+              TextFeild.textfield(
+                  context, width, height, "Amount", amount, false),
               //two button
               SizedBox(width: 0.0, height: height * .03),
               Row(

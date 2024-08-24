@@ -26,19 +26,19 @@ class ProductCard extends StatelessWidget {
         color: const Color.fromRGBO(255, 255, 255, 1.0),
         child: SizedBox(
           width: width * .47,
-          height: height * .28,
+          height: height * .32,
           child: Column(children: [
             SizedBox(width: 0.0, height: height * .01),
             Container(
               // padding: EdgeInsets.all(height * .02),
-              height: height * .16,
-              width: width * .43,
+              height: height * .2,
+              width: width * .46,
               decoration: BoxDecoration(
                   image: DecorationImage(
                 image: AssetImage(
                   productimage,
                 ),
-                fit: BoxFit.contain,
+                fit: BoxFit.fill,
               )),
             ),
             Container(
@@ -75,7 +75,7 @@ class ProductCard extends StatelessWidget {
             Container(
                 padding: EdgeInsets.only(left: height * .01),
                 height: height * .05,
-                width: width * .47,
+                width: width * .44,
                 child: Text(
                   productdescription,
                   style: texttheme.labelSmall?.copyWith(color: Colors.black),

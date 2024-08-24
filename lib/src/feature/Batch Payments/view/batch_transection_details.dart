@@ -1,3 +1,4 @@
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:firststore/src/utils/button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +14,7 @@ class BatchTransectionDetails extends StatefulWidget {
 TextEditingController paymentdate = TextEditingController();
 TextEditingController transaction_id = TextEditingController();
 TextEditingController name = TextEditingController();
-TextEditingController payment_type = TextEditingController();
+SingleValueDropDownController payment_type = SingleValueDropDownController();
 TextEditingController amount = TextEditingController();
 
 class _BatchTransectionDetailsState extends State<BatchTransectionDetails> {
@@ -54,18 +55,28 @@ class _BatchTransectionDetailsState extends State<BatchTransectionDetails> {
               ),
             ),
             // Transaction ID*
-            TextFeild.textfield(
-                width, height, "Transaction ID", transaction_id, false),
+            TextFeild.textfield(context, width, height, "Transaction ID",
+                transaction_id, false),
             //Name
-            TextFeild.textfield(width, height, "Name", name, false),
+            TextFeild.textfield(context, width, height, "Name", name, false),
             //Payment Type*
-            TextFeild.textfield(
-                width, height, "Payment Type", payment_type, false),
-
+            TextFeild.dropdowntextfield(
+                width,
+                height,
+                "Payment Type",
+                payment_type,
+                [
+                  const DropDownValueModel(
+                      name: "Individual", value: "Individual"),
+                  const DropDownValueModel(name: "business", value: "business"),
+                ],
+                true),
             // Date
-            TextFeild.textfield(width, height, "Date", paymentdate, true),
+            TextFeild.textfield(
+                context, width, height, "Date", paymentdate, true),
             //Amount
-            TextFeild.textfield(width, height, "Amount", amount, false),
+            TextFeild.textfield(
+                context, width, height, "Amount", amount, false),
 
             //two button
             SizedBox(width: 0.0, height: height * .03),
@@ -73,7 +84,12 @@ class _BatchTransectionDetailsState extends State<BatchTransectionDetails> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Button.button("Save", () {
-                  context.pushNamed('/indivitual_entity_details');
+                  if (payment_type.dropDownValue?.name == "Individual") {
+                    context.pushNamed('/indivitual_entity_details');
+                  }
+                  if (payment_type.dropDownValue?.name == "business") {
+                    context.pushNamed("/business_entity_details");
+                  }
                 }, height, width * .8),
                 Button.button("Add Another", () {}, height, width * .8),
               ],

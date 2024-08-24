@@ -51,13 +51,13 @@ class _AccountDetailLedgerState extends State<AccountDetailLedger> {
               ),
             ),
             //Tax Identification Number
-            TextFeild.textfield(width, height, "Tax Identification Number",
-                tax_identification_number, false),
+            TextFeild.textfield(context, width, height,
+                "Tax Identification Number", tax_identification_number, false),
             //Account Number
-            TextFeild.textfield(
-                width, height, "Account Number", account_number, false),
+            TextFeild.textfield(context, width, height, "Account Number",
+                account_number, false),
             //Account Holder Name
-            TextFeild.textfield(width, height, "Account Holder Name",
+            TextFeild.textfield(context, width, height, "Account Holder Name",
                 account_holder_name, false),
             //two button
             SizedBox(width: 0.0, height: height * .05),

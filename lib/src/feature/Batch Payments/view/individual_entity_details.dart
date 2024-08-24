@@ -53,21 +53,21 @@ class _BatchEntityDetailsState extends State<IndividualEntityDetails> {
             ),
             //Individual ID*
             TextFeild.textfield(
-                width, height, "Individual ID", individual_id, false),
+                context, width, height, "Individual ID", individual_id, false),
             //Name*
-            TextFeild.textfield(width, height, "Name", name, false),
+            TextFeild.textfield(context, width, height, "Name", name, false),
             //Contact Number*
-            TextFeild.textfield(
-                width, height, "Contact Number", contact_number, false),
+            TextFeild.textfield(context, width, height, "Contact Number",
+                contact_number, false),
             //Email
-            TextFeild.textfield(width, height, "Email", email, false),
+            TextFeild.textfield(context, width, height, "Email", email, false),
             //two button
             SizedBox(width: 0.0, height: height * .09),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Button.button("Save", () {
-                  context.pushNamed('/business_entity_details');
+                  context.pushNamed('/batch_invoice_details');
                 }, height, width * .8),
                 Button.button("Add Another", () {}, height, width * .8),
               ],

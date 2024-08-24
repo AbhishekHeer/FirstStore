@@ -53,19 +53,19 @@ class _IntercompanyBusinessState extends State<IntercompanyBusiness> {
               ),
             ),
             //Registration ID*
-            TextFeild.textfield(
-                width, height, "Registration ID*", rigistration, false),
+            TextFeild.textfield(context, width, height, "Registration ID*",
+                rigistration, false),
             //Compony Name
             TextFeild.textfield(
-                width, height, "Compony Name", company_name, false),
+                context, width, height, "Compony Name", company_name, false),
             // Contact Number*
-            TextFeild.textfield(
-                width, height, "Contact Number", contact_number, false),
+            TextFeild.textfield(context, width, height, "Contact Number",
+                contact_number, false),
             //Email*
-            TextFeild.textfield(width, height, "Email", email, false),
+            TextFeild.textfield(context, width, height, "Email", email, false),
             //GST Registration No.*
-            TextFeild.textfield(
-                width, height, "GST Registration No.", gst_number, false),
+            TextFeild.textfield(context, width, height, "GST Registration No.",
+                gst_number, false),
             SizedBox(width: 0.0, height: height * .05),
             Button.button("Next", () {
               context.pushNamed("/intercompany_invoice");

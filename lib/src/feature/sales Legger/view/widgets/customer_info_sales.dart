@@ -52,15 +52,17 @@ class _CoutomerInfoSalesState extends State<CustomerInfoSales> {
             ),
           ),
           // Customer ID*
-          TextFeild.textfield(width, height, "Customer ID", customer_id, false),
+          TextFeild.textfield(
+              context, width, height, "Customer ID", customer_id, false),
           // Customer Name*
           TextFeild.textfield(
-              width, height, "Customer Name", customer_name, false),
+              context, width, height, "Customer Name", customer_name, false),
           // Contact Number ID*
           TextFeild.textfield(
-              width, height, "Contact Number", customer_phone, false),
+              context, width, height, "Contact Number", customer_phone, false),
           //Email*
-          TextFeild.textfield(width, height, "Email", customer_email, false),
+          TextFeild.textfield(
+              context, width, height, "Email", customer_email, false),
           //two button
           SizedBox(width: 0.0, height: height * .06),
           Row(

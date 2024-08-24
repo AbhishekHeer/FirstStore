@@ -54,15 +54,15 @@ class _CustomerDetailsCashLedgerState extends State<CustomerDetailsCashLedger> {
             ),
             //Customer ID*
             TextFeild.textfield(
-                width, height, "Customer ID", customer_id, false),
+                context, width, height, "Customer ID", customer_id, false),
             //  Customer Name*
             TextFeild.textfield(
-                width, height, "Customer Name", customer_name, false),
+                context, width, height, "Customer Name", customer_name, false),
             // Contact Number
-            TextFeild.textfield(
-                width, height, "Contact Number", contact_number, false),
+            TextFeild.textfield(context, width, height, "Contact Number",
+                contact_number, false),
             //Email*
-            TextFeild.textfield(width, height, "Email", email, false),
+            TextFeild.textfield(context, width, height, "Email", email, false),
             SizedBox(width: 0.0, height: height * .06),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

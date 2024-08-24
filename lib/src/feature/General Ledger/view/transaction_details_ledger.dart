@@ -56,17 +56,17 @@ class _TransactionDetailsLedgerState extends State<TransactionDetailsLedger> {
           ),
           // Transaction ID*
           TextFeild.textfield(
-              width, height, "Transaction ID", transaction_id, false),
+              context, width, height, "Transaction ID", transaction_id, false),
           //Name
-          TextFeild.textfield(width, height, "Name", name, false),
+          TextFeild.textfield(context, width, height, "Name", name, false),
           //Payment Type*
           TextFeild.dropdowntextfield(
               width, height, "Payment Type", payment_type, [], true),
 
           // Date
-          TextFeild.textfield(width, height, "Date", date, true),
+          TextFeild.textfield(context, width, height, "Date", date, true),
           //Amount
-          TextFeild.textfield(width, height, "Amount", amount, false),
+          TextFeild.textfield(context, width, height, "Amount", amount, false),
 
           //two button
           SizedBox(width: 0.0, height: height * .03),

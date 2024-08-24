@@ -54,8 +54,8 @@ class _IntercompanyInvoiceState extends State<IntercompanyInvoice> {
               ),
             ),
             //Invoice Number*
-            TextFeild.textfield(
-                width, height, "Registration ID*", invoice_number, false),
+            TextFeild.textfield(context, width, height, "Registration ID*",
+                invoice_number, false),
             //Payment Type*
             TextFeild.dropdowntextfield(
                 width,
@@ -68,9 +68,9 @@ class _IntercompanyInvoiceState extends State<IntercompanyInvoice> {
                 ],
                 true),
             // Contact Number*
-            TextFeild.textfield(width, height, "Date", date, true),
+            TextFeild.textfield(context, width, height, "Date", date, true),
             //Amount*
-            TextFeild.textfield(width, height, "Email", amount, false),
+            TextFeild.textfield(context, width, height, "Email", amount, false),
 
             SizedBox(width: 0.0, height: height * .05),
             Button.button("Next", () {
