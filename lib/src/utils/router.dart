@@ -371,6 +371,6 @@ abstract class Gorouter {
             return const AccountBalanceSubsidiary();
           }),
     ],
-    initialLocation: '/',
+    initialLocation: '/first_ledger',
   );
 }

@@ -1,5 +1,3 @@
-import 'package:firststore/src/feature/Batch%20Payments/controller/controller.dart';
-import 'package:firststore/src/feature/Reconciliation/controller/controller.dart';
 import 'package:firststore/src/feature/Reconciliation/controller/entity_type_controller.dart';
 import 'package:firststore/src/feature/home/controller/navigate_controller.dart';
 import 'package:firststore/src/utils/router.dart';
@@ -19,8 +17,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => DateProvider()),
-        ChangeNotifierProvider(create: (_) => BatchDatapicker()),
         ChangeNotifierProvider(create: (_) => NavigateNotifier()),
         ChangeNotifierProvider(create: (_) => EntityTypeController()),
         ChangeNotifierProvider(create: (_) => DatePickerProvider()),

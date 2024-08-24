@@ -64,7 +64,7 @@ class _BasicInfoLedgerState extends State<BasicInfoLedger> {
                 contact_number, false),
 
             // Email
-            TextFeild.textfield(context, width, height, "Email", email, true),
+            TextFeild.textfield(context, width, height, "Email", email, false),
             //Company Name
             TextFeild.textfield(
                 context, width, height, "Company Name", company_name, false),
